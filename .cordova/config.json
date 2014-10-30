@@ -1,7 +1,7 @@
 {
     "lib": {
         "www": {
-            "id": "com.phonegap.helloworld",
+            "id": "1157829",
             "version": "3.6.0",
             "uri": "https://github.com/phonegap/phonegap-app-hello-world/archive/3.6.0.tar.gz"
         }

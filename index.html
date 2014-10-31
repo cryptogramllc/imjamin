@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html manifest="manifest.php" class="with-statusbar-overlay">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Pict-O-Jam</title>
+    <link rel="stylesheet" href="dist/css/framework7.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="http://fonts.googleapis.com/css?family=Dorsa" rel="stylesheet" type="text/css">
+    <!-- Favicon-->
+    <link href="img/icon-57.png" rel="shortcut icon"> 
+    <!-- iOS 7 iPad (retina) -->
+    <link href="img/icon-152.png" sizes="152x152" rel="apple-touch-icon">
+    <!-- iOS 6 iPad (retina) -->
+    <link href="img/icon-144.png" sizes="144x144" rel="apple-touch-icon">
+    <!-- iOS 7 iPhone (retina) -->
+    <link href="img/icon-120.png" sizes="120x120" rel="apple-touch-icon">
+    <!-- iOS 6 iPhone (retina) -->
+    <link href="img/icon-114.png" sizes="114x114" rel="apple-touch-icon">
+    <!-- iOS 7 iPad -->
+    <link href="img/icon-76.png" sizes="76x76" rel="apple-touch-icon">
+    <!-- iOS 6 iPad -->
+    <link href="img/icon-72.png" sizes="72x72" rel="apple-touch-icon">
+    <!-- iOS 6 iPhone -->
+    <link href="img/icon-57.png" sizes="57x57" rel="apple-touch-icon">
+  </head>
+  <body>
+    <!-- Statusbar overlay-->
+    <div class="statusbar-overlay"></div>
+    <!-- Views-->
+    <div class="views">
+      <div class="view view-main navbar-fixed">
+        <div class="navbar hidden">
+          <div class="navbar-inner">
+            <div class="left"></div>
+            <div class="center sliding">Welcome</div>
+            <div class="right"><a class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+          </div>
+        </div>
+        <div class="pages">
+          <div data-page="index" class="page">
+            <div class="page-content">
+              <div class="main-title">IM JAMIN</div>
+              <div class="feilds sign-in">
+                <form id="sign-in" action="/server/server.php" method="GET" class="store-data list-block ajax-submit">
+                  <ul>
+                    <li>
+                      <label class="label-radio item-content">
+                        <input type="radio" name="country" value="+1" checked="checked" id="US">
+                        <div class="item-inner">
+                          <div class="item-title">United States (+1)</div>
+                        </div>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="label-radio item-content">
+                        <input type="radio" name="country" value="+44" checked="" id="UK">
+                        <div class="item-inner">
+                          <div class="item-title">United Kingdom (+44)</div>
+                        </div>
+                      </label>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-tel"></i></div>
+                        <div class="item-inner">
+                          <div class="item-title label">Mobile</div>
+                          <div class="item-input">
+                            <input type="tel" placeholder="Your Mobile" name="mobile" id="mobile">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </form><a href="#" class="button done prompt-ok">Done <a href="profile.html" class="home_page hidden">Home       </a></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Popup to add new task           -->
+    <div class="col-25"><span style="width:42px; height:42px" class="preloader preloader-white"></span></div>
+    <!-- Template-->
+    <script id="todo-item-template" type="text/template">
+      <ul>{{#each this}}
+        <li data-color="{{color}}" data-id="{{id}}" class="swipeout">
+          <div class="swipeout-content">
+            <label class="label-checkbox item-content"><input type="checkbox" {{checked}}>
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner">
+                <div class="item-title">{{title}}</div>
+              </div>
+            </label>
+          </div>
+          <div class="swipeout-actions-right"><a href="#" class="swipeout-delete">Delete</a></div>
+        </li>{{/each}}
+      </ul>
+    </script>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="dist/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/todo7.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jQueryForm.js"> </script>
+  </body>
+</html>

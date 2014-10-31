@@ -1,0 +1,26 @@
+.navbar.hidden {
+  visibility: hidden;
+}
+.navbar .navbar-inner {
+  -webkit-transition: background-color 100ms linear;
+  -moz-transition: background-color 100ms linear;
+  -o-transition: background-color 100ms linear;
+  -ms-transition: background-color 100ms linear;
+  transition: background-color 100ms linear;
+}
+.navbar .navbar-on-center,
+.navbar .navbar-on-left,
+.navbar .navbar-from-center-to-left {
+  background-color: #f7f7f8;
+  border-bottom: 1px solid #c4c4c4;
+}
+.navbar .navbar-on-center .link,
+.navbar .navbar-on-left .link,
+.navbar .navbar-from-center-to-left .link {
+  color: #cc0442 !important;
+}
+.navbar .navbar-on-center .center,
+.navbar .navbar-on-left .center,
+.navbar .navbar-from-center-to-left .center {
+  color: #000;
+}

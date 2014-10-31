@@ -1,0 +1,41 @@
+.feilds {
+  width: 90%;
+  margin: 15px;
+  text-align: center;
+  position: relative;
+}
+.feilds ul {
+  background: none;
+  color: #fff;
+  border: none;
+}
+.feilds input {
+  -webkit-appearance: none;
+  width: 90%;
+  border: none;
+  position: relative;
+  padding: 14px;
+  margin: 5px 0px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  font-size: 15px;
+}
+.feilds button {
+  -webkit-appearance: none;
+  border: none;
+  padding: 10px;
+  width: 50%;
+  background: none;
+  color: #fff;
+  font-size: 20px;
+  opacity: 0.8;
+}
+.feilds a.button.done {
+  color: #fff;
+  border-color: #fff;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}

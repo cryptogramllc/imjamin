@@ -358,7 +358,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'www/src/templates/',
                     src: ['*.jade'],
-                    dest: 'build/',
+                    dest: 'www/build/',
                     ext: '.html'
                 }]
             },
@@ -425,7 +425,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'www/jade/',
                         src: ['*.jade'],
-                        dest: '',
+                        dest: 'www/',
                         ext: '.html'
                     }
                 ]

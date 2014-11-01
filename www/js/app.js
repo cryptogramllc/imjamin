@@ -1,13 +1,13 @@
 $(document).ready(function(){
   
    //functions	
-	$('.fileUpload').click(function(){
-    $('input#avatar').focus().click();
-       return false;
+	$('body').on('touchstart', '.fileUpload', function(){
+		    $('input#avatar').focus().click();
+		       return false;
     });
      
     //register click trigger
-    $('a.register').on('click', function(){
+    $('body').on('touchstart', 'a.register', function(){
            	
            var code = "";	
            var type = "register";
@@ -34,7 +34,7 @@ $(document).ready(function(){
 			
     });
 
-     $('input#avatar').on('change', function(){
+     $('body').on('change', 'input#avatar', function(){ 
      		$('form#register').submit();
      });
 	

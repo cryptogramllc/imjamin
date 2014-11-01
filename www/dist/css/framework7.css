@@ -12,7 +12,7 @@
  *
  * Released on: October 7, 2014
 */
-html,
+html, 
 body {
   position: relative;
   height: 100%;
@@ -55,7 +55,7 @@ select {
 }
 a {
   text-decoration: none;
-  color: #007aff;
+  color: #cc0442;
 }
 p {
   margin: 1em 0;

@@ -6,7 +6,7 @@ html.with-statusbar-overlay(manifest="manifest.php")
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
     title Pict-O-Jam
-    link(rel="stylesheet", href="dist/css/framework7.min.css")
+    link(rel="stylesheet", href="dist/css/framework7.css")
     link(rel="stylesheet", href="css/main.css")
     link(href='http://fonts.googleapis.com/css?family=Dorsa', rel='stylesheet', type='text/css')
 
@@ -35,12 +35,12 @@ html.with-statusbar-overlay(manifest="manifest.php")
     .views
       .view.view-main.navbar-fixed
         .navbar.hidden
-          .navbar-inner
+          //- .navbar-inner
             .left
             .center.sliding Welcome
             .right
               a.open-panel.link.icon-only
-                i.icon.icon-list
+              //- i.icon.icon-list
         
         .pages
           .page(data-page="index")

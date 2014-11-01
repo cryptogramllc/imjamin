@@ -141,7 +141,7 @@ $$('.todo-items-list').on('delete', '.swipeout', function () {
                     myApp.alert('Thank you for registering. Login?', function(){
                     
                           $('.navbar').removeClass('hidden');
-                          mainView.router.loadPage('http://54.69.118.223//profile.html');
+                          mainView.router.loadPage('http://54.69.118.223/imjamin/www/profile.html');
                    });
                 }
                 else{ myApp.alert('There was an error with your code! Try again.', function () {

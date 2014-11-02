@@ -31,7 +31,7 @@ $$('.popup .color').on('click', function () {
     $$(this).addClass('selected');
 });
 
-$$('.done.prompt-ok').on('click', function () {
+$('body').on('click', '.done.prompt-ok', function () {
     var number = $('#mobile').val();
     if( number == ''){
         myApp.alert('Please enter your mobile number in order to proceed.');   
@@ -139,7 +139,6 @@ $$('.todo-items-list').on('delete', '.swipeout', function () {
               if(postData.type == 'verify'){
                 if(data == 'success'){ 
                     myApp.alert('Thank you for registering. Login?', function(){
-                    
                           $('.navbar').removeClass('hidden');
                           mainView.router.loadPage('http://54.69.118.223/imjamin/www/profile.html');
                    });

@@ -1,4 +1,15 @@
 $(document).ready(function(){
+   $('.col-25').show();
+   session_check();
+
+   //make session request
+   
+   function session_check(){
+   		var type = 'session_check';
+        var data = {type:type};
+   		ajaxCall(data);
+   }
+
   
    //functions	
 	$('body').on('touchstart', '.fileUpload', function(){
@@ -25,7 +36,7 @@ $(document).ready(function(){
            var password = $('#password').val(); 
            var confirm = $('#confirm').val();
            var avatar = $('#avatar_preview').attr('src');
-           var data = {type:type, name:name, email:email, mobile:mobile, password:password, confirm:confirm, avatar:avatar};  
+           var data = {type:type, name:name, email:email, mobile:mobile,  avatar:avatar};  
 
            ajaxCall(data);
 
@@ -44,7 +55,7 @@ $(document).ready(function(){
 	    resetForm: false        // reset the form after successful submit 
 	}; 
 
-	$('form#register').submit(function() { 
+	$('body').on('submit', 'form#register', function() { 
 	    $(this).ajaxSubmit(options);  //Ajax Submit form            
 	    // return false to prevent standard browser submit and page navigation 
 	    return false; 
@@ -118,7 +129,16 @@ $(document).ready(function(){
 
        	  },
        	  success: function(data){
-            
+          //  console.log(data);
+             $('.col-25').hide();
+
+            if(data == 'fail'){
+            	$('.navbar').removeClass('hidden');
+            	mainView.router.loadPage('http://54.69.118.223/imjamin/www/login.html');
+            }else{
+            	$('.navbar').removeClass('hidden');
+                mainView.router.loadPage('http://54.69.118.223/imjamin/www/profile.html');	
+            }
        	  }
 
        }); 

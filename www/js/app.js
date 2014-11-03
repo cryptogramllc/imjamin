@@ -45,68 +45,64 @@ $(document).ready(function(){
 			
     });
 
-     $('body').on('change', 'input#avatar', function(){ 
-     		$('form#register').submit();
-     });
-	
-	var options = { 
-	    target: '#output',   // target element(s) to be updated with server response 
-	    beforeSubmit:  beforeSubmit,  // pre-submit callback 
-	    resetForm: false        // reset the form after successful submit 
-	}; 
+  $("body").on('submit', "#register", (function(e) {
+        e.preventDefault();
+        $("#message").empty();
+        $('#loading').show();
+      $.ajax({
+      url: "http://54.69.118.223/server/upload.php", // Url to which the request is send
+      type: "POST",             // Type of request to be send, called as method
+      data: new FormData(this), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+      contentType: false,       // The content type used when sending data to the server.
+      cache: false,             // To unable request pages to be cached
+      processData:false,        // To send DOMDocument or non processed data file it is set to false
+      success: function(data)   // A function to be called if request succeeds
+        {
+           $('#loading').hide();
+           $("#message").html(data);
+        }
+      });
+  }));
 
-	$('body').on('submit', 'form#register', function() { 
-	    $(this).ajaxSubmit(options);  //Ajax Submit form            
-	    // return false to prevent standard browser submit and page navigation 
-	    return false; 
-	});
+// Function to preview image after validation
+
+    $("body").on("change", "input#avatar", function() {
+        $('#register').submit();
+        $("#message").empty(); // To remove the previous error message
+        var file = this.files[0];
+        var imagefile = file.type;
+        var match= ["image/jpeg","image/png","image/jpg"];
+      if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2])))
+      {
+        $('#output').attr('src','noimage.png');
+        $("#message").html("<p id='error'>Please Select A valid Image File</p>"+"<h4>Note</h4>"+"<span id='error_message'>Only jpeg, jpg and png Images type allowed</span>");
+        return false;
+      }
+      else
+      {
+        var reader = new FileReader();
+        reader.onload = imageIsLoaded;
+        reader.readAsDataURL(this.files[0]);
+      }
+    });
+
+
+
+function imageIsLoaded(e) {
+  $("#avatar").css("color","green");
+  $('#image_preview').css("display", "block");
+  $('#output').attr('src', e.target.result);
+  $('#output').attr('width', '250px');
+$('#output').attr('height', '230px');
+};    
 
 
 
 
-		function beforeSubmit(){
-		//check whether browser fully supports all File API
-		if (window.File && window.FileReader && window.FileList && window.Blob)
-		{
-		    
-		    if( !$('input#avatar').val() ) //check empty input filed
-		    {
-		        $("#output").html("Are you kidding me?");
-		        return false
-		    }
-		    
-		    var fsize = $('#avatar')[0].files[0].size; //get file size
-		    var ftype = $('#avatar')[0].files[0].type; // get file type
-		    
 
-		    //allow only valid image file types 
-		    switch(ftype)
-		    {
-		        case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
-		            break;
-		        default:
-		            $("#output").html("<b>"+ftype+"</b> Unsupported file type!");
-		            return false
-		    }
-		    
-		    //Allowed file size is less than 1 MB (1048576)
-		    if(fsize>1048576) 
-		    {
-		        $("#output").html("<b>"+ fsize +"</b> Too big Image file! <br />Please reduce the size of your photo using an image editor.");
-		        return false
-		    }
-		            
-		    $('#submit-btn').hide(); //hide submit button
-		    $('#loading-img').show(); //hide submit button
-		    $("#output").html("");  
-		}
-		else
-		{
-		    //Output error to older browsers that do not support HTML5 File API
-		    $("#output").html("Please upgrade your browser, because your current browser lacks some new features we need!");
-		    return false;
-		}
-		}
+
+
+
 
 
 
@@ -144,24 +140,6 @@ $(document).ready(function(){
        }); 
 
    }
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });

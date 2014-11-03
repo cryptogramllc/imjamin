@@ -13,7 +13,7 @@ div.navbar
      div.page-content
       div.content-block
          .register-block
-              form(id="register", class="store-data list-block ajax-submit", action="http://54.69.118.223/server/upload.php", method="post", encrypt="multipart/form-data")
+              form(id="register", class="store-data list-block ajax-submit", action="", method="post", encrypt="multipart/form-data")
                 ul
                   li
                     div.item-content
@@ -40,6 +40,6 @@ div.navbar
                          div.item-input
                            input(type="file", placeholder="Choose an avatar", name="avatar", class="visibility-hidden", id="avatar")
                            a.button.fileUpload Choose an Avatar 
-
-                div(id="output")  
+                div(id="message")      
+                //- img(id="output")  
                 a.button.register Register

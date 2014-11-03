@@ -46,7 +46,14 @@ $(document).ready(function(){
     });
 
      $('body').on('change', 'input#avatar', function(){ 
-     		$('form#register').submit();
+     		$(this).simpleUpload({
+			    url: 'http://54.69.118.223/server/upload.php',
+			    change: function(files){
+			        $.each(files, function(i, file){
+			            alert('Nome: '+file.name+' - Tamanho: '+file.size+' - Tipo: '+file.type);
+			        });
+			    }
+			});
      });
 	
 	var options = { 
@@ -62,51 +69,6 @@ $(document).ready(function(){
 	});
 
 
-
-
-		function beforeSubmit(){
-		//check whether browser fully supports all File API
-		if (window.File && window.FileReader && window.FileList && window.Blob)
-		{
-		    
-		    if( !$('input#avatar').val() ) //check empty input filed
-		    {
-		        $("#output").html("Are you kidding me?");
-		        return false
-		    }
-		    
-		    var fsize = $('#avatar')[0].files[0].size; //get file size
-		    var ftype = $('#avatar')[0].files[0].type; // get file type
-		    
-
-		    //allow only valid image file types 
-		    switch(ftype)
-		    {
-		        case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
-		            break;
-		        default:
-		            $("#output").html("<b>"+ftype+"</b> Unsupported file type!");
-		            return false
-		    }
-		    
-		    //Allowed file size is less than 1 MB (1048576)
-		    if(fsize>1048576) 
-		    {
-		        $("#output").html("<b>"+ fsize +"</b> Too big Image file! <br />Please reduce the size of your photo using an image editor.");
-		        return false
-		    }
-		            
-		    $('#submit-btn').hide(); //hide submit button
-		    $('#loading-img').show(); //hide submit button
-		    $("#output").html("");  
-		}
-		else
-		{
-		    //Output error to older browsers that do not support HTML5 File API
-		    $("#output").html("Please upgrade your browser, because your current browser lacks some new features we need!");
-		    return false;
-		}
-		}
 
 
 

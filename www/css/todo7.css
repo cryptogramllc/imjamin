@@ -29,7 +29,7 @@ html.ios .page-content {
 }
 .view-main .navbar {
   border-bottom: none;
-  background: #cc0442;
+  background: transparent;
   color: #fff;
 }
 i.icon-plus {

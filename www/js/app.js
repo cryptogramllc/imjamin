@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+
+
    $('.col-25').show();
    session_check();
 
@@ -132,7 +134,6 @@ $('#output').attr('height', '230px');
        }); 
 
    }
-
 
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="manifest.php" class="with-statusbar-overlay">
+<html manifest="manifest.php">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -31,11 +31,14 @@
     <div class="statusbar-overlay"></div>
     <!-- Views-->
     <div class="views">
-      <div class="view view-main navbar-fixed">
-        <div class="navbar hidden">
+      <div class="view view-main navbar-through toolbar-through hidden-toolbar hidden-navbar">
+        <div class="navbar">
+        </div>
+        <div class="toolbar">
+          <div class="toolbar-inner"><a class="link">Home</a><a class="link">Chats</a><a class="link">Profile</a><a class="link">Exit</a></div>
         </div>
         <div class="pages">
-          <div data-page="index" class="page">
+          <div data-page="index" class="page no-toolbar no-navbar">
             <div class="page-content">
               <div class="main-title">IM JAMIN</div>
               <h2 style="color:#fff;font-family: 'Dorsa', sans-serif;font-size: 40px;letter-spacing: 4px;text-align: center;opacity: 0.5;">Please Wait</h2>
@@ -45,7 +48,7 @@
       </div>
     </div>
     <!-- Popup to add new task           -->
-    <div class="col-25"><span style="width:42px; height:42px" class="preloader preloader-white"></span></div>
+    <div class="col-25"><span style="width:42px; height:42px" class="preloader preloader"></span></div>
     <!-- Template-->
     <script id="todo-item-template" type="text/template">
       <ul>{{#each this}}
@@ -66,9 +69,10 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="dist/js/framework7.min.js"></script>
     <!-- Path to your app js-->
-    <script type="text/javascript" src="js/todo7.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/index.js">    </script>
+    <script type="text/javascript" src="js/todo7.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>

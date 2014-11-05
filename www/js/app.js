@@ -1,90 +1,48 @@
 
-$(document).ready(function(){
+    app.initialize();
 
+    function getImage() {
+        // Retrieve image file location from specified source
+        navigator.camera.getPicture(uploadPhoto, function(message) {
+        alert('get picture failed');
+    },{
+        quality: 50, 
+        destinationType: navigator.camera.DestinationType.FILE_URI,
+        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+    }
+        );
 
-   $('.col-25').show();
-   session_check();
+    }
 
-   //make session request
-   
-   function session_check(){
-   		var type = 'session_check';
-        var data = {type:type};
-   		ajaxCall(data);
-   }
+    function uploadPhoto(imageURI) {
+        $('#register #message').empty();
+        $('.col-25').show();
+        var options = new FileUploadOptions();
+        options.fileKey="avatar";
+        options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+        options.mimeType="image/jpeg";
 
-  
-   //functions	
-	$('body').on('touchstart', '.fileUpload', function(){
-		    $('input#avatar').focus().click();
-		       return false;
-    });
-     
-    //register click trigger
-    $('body').on('touchstart', 'a.register', function(){
-           	
-           var code = "";	
-           var type = "register";
-           var name = $('#name').val();
-           var email = $('#email').val(); 
-           var num_code;
-        
-           $('input[type="radio"]').each(function(){
+        var params = new Object();
+        params.value1 = "test";
+        params.value2 = "param";
 
-				var checkbox = $(this).is(':checked');
-			    if(checkbox){ num_code = $(this).val(); }
-			});
+        options.params = params;
+        options.chunkedMode = false;
 
-           var number = $('#mobile').val();
-           var mobile = num_code + number; 
-           var password = $('#password').val(); 
-           var confirm = $('#confirm').val();
-           var avatar = $('#avatar_preview').attr('src');
-           var data = {type:type, name:name, email:email, mobile:mobile,  avatar:avatar};  
+        var ft = new FileTransfer();
+        ft.upload(imageURI, "http://54.69.118.223/server/upload.php", win, fail, options);
+    }
 
-           ajaxCall(data);
+    function win(r) {
 
-			
+        $('.col-25').hide();
+        console.log("Code = " + r.responseCode);
+        console.log("Response = " + r.response);
+        console.log("Sent = " + r.bytesSent);
+        $('#register #message').append(r.response);
+    }
 
-			
-    });
+    function fail(error) {
+        alert("An error has occurred: Code = " + error.code);
+    }
 
-
-    
-   
-   //ajax
-   function ajaxCall(data){
-
-      var postData = data;
-     
-       console.log(postData);
-       $.ajax({
-       	  url: 'http://54.69.118.223/server/server.php',
-       	  type: 'POST',
-       	  data: postData,
-       	  dataType: 'html',
-       	  cache: false,
-       	  beforeSend:function(){
-
-       	  },
-       	  success: function(data){
-          //  console.log(data);
-             $('.col-25').hide();
-
-            if(data == 'fail'){
-            	$('.navbar').removeClass('hidden');
-            	mainView.router.loadPage('http://54.69.118.223/imjamin/www/login.html');
-            }else{
-            	$('.navbar').removeClass('hidden');
-                mainView.router.loadPage('http://54.69.118.223/imjamin/www/profile.html');	
-            }
-       	  }
-
-       }); 
-
-   }
-
-
-
-
-});

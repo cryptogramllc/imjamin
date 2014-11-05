@@ -20,6 +20,9 @@ body {
 .page {
   background: none;
 }
+.main-page .page-content {
+  background: #efeff4;
+}
 html.ios .page {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -189,9 +192,6 @@ body.with-popup .statusbar-overlay {
   body.with-popup .statusbar-overlay {
     z-index: 11000;
   }
-}
-.statusbar-overlay {
-  background: #cc0442;
 }
 .modal-inner {
   background: #cc0442;

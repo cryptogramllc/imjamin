@@ -8,38 +8,37 @@ div.navbar
     div.right
       a.link.icon-only.open-panel
         i.icon.icon-list
-  div.pages
-   div(data-page="home", class="page home")
-     div.page-content
+div.pages
+  div.page.main-page.no-toolbar.no-navbar(data-page="profile") 
+    div.page-content
       div.content-block
-         .register-block
-              form(id="register", class="store-data list-block ajax-submit", action="", method="post", encrypt="multipart/form-data")
-                ul
-                  li
-                    div.item-content
-                      div.item-media
-                        i.icon.icon-form-name
-                      div.item-inner
-                         div.item-title.label Name
-                         div.item-input
-                           input(type="text", placeholder="Your Name", name="name", id="name")  
-                  li
-                    div.item-content
-                      div.item-media
-                        i.icon.icon-form-email
-                      div.item-inner
-                         div.item-title.label Email
-                         div.item-input
-                           input(type="email", placeholder="Your Email", name="email", id="email")
-                  li
-                    div.item-content
-                      div.item-media
-                        i.icon.icon-form
-                      div.item-inner
-                         div.item-title.label Avatar
-                         div.item-input
-                           input(type="file", placeholder="Choose an avatar", name="avatar", class="visibility-hidden", id="avatar")
-                           a.button.fileUpload Choose an Avatar 
-                div(id="message")      
-                //- img(id="output")  
-                a.button.register Register
+       .register-block
+            form(id="register", class="store-data list-block ajax-submit", action="", method="post", encrypt="multipart/form-data")
+              ul
+                li
+                  div.item-content
+                    div.item-media
+                      i.icon.icon-form-name
+                    div.item-inner
+                       div.item-title.label Name
+                       div.item-input
+                         input(type="text", placeholder="Your Name", name="name", id="name")  
+                //- li
+                  div.item-content
+                    div.item-media
+                      i.icon.icon-form-email
+                    div.item-inner
+                       div.item-title.label Email
+                       div.item-input
+                         input(type="email", placeholder="Your Email", name="email", id="email")
+                li
+                  div.item-content
+                    div.item-media
+                      i.icon.icon-form
+                    div.item-inner
+                       div.item-title.label Avatar
+                       div.item-input
+                         button.button(onclick="getImage();") Upload Photo
+              div(id="message")      
+              //- img(id="output")  
+              a.button.register Register

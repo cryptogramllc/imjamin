@@ -1,5 +1,5 @@
 doctype
-html.with-statusbar-overlay(manifest="manifest.php")
+html(manifest="manifest.php")
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui")
@@ -33,17 +33,22 @@ html.with-statusbar-overlay(manifest="manifest.php")
     .statusbar-overlay
     // Views
     .views
-      .view.view-main.navbar-fixed
-        .navbar.hidden
+      .view.view-main.navbar-through.toolbar-through.hidden-toolbar.hidden-navbar
+        .navbar
           //- .navbar-inner
             .left
             .center.sliding Welcome
             .right
               a.open-panel.link.icon-only
               //- i.icon.icon-list
-        
+        .toolbar
+          .toolbar-inner
+            a.link Home
+            a.link Chats
+            a.link Profile
+            a.link Exit
         .pages
-          .page(data-page="index")
+          .page.no-toolbar.no-navbar(data-page="index")
             .page-content
               .main-title IM JAMIN
               h2(style="color:#fff;font-family: 'Dorsa', sans-serif;font-size: 40px;letter-spacing: 4px;text-align: center;opacity: 0.5;") Please Wait
@@ -154,7 +159,7 @@ html.with-statusbar-overlay(manifest="manifest.php")
                   a.button.register Register
             
     .col-25
-      span(style="width:42px; height:42px", class="preloader preloader-white")
+      span(style="width:42px; height:42px", class="preloader preloader")
       
           
     // Template
@@ -179,9 +184,9 @@ html.with-statusbar-overlay(manifest="manifest.php")
     script(type="text/javascript", src="dist/js/framework7.min.js")
    
     // Path to your app js
-     
-    script(type="text/javascript", src="js/todo7.js")
-    script(type="text/javascript", src="js/app.js")
-    script(type="text/javascript", src="cordova.js")
-    script(type="text/javascript", src="js/index.js")
 
+    script(type="text/javascript", src="cordova.js")
+    script(type="text/javascript", src="js/index.js")     
+    script(type="text/javascript", src="js/todo7.js")
+    script(type="text/javascript", src="js/ajax.js")
+    script(type="text/javascript", src="js/app.js")

@@ -10,6 +10,7 @@ var $$ = Dom7;
 var mainView = myApp.addView('.view-main', {
     // Because we use fixed-through navbar we can enable dynamic navbar
     dynamicNavbar: true
+
 });
 
 var todoData = localStorage.td7Data ? JSON.parse(localStorage.td7Data) : [];
@@ -140,11 +141,13 @@ $$('.todo-items-list').on('delete', '.swipeout', function () {
                 if(data == 'success'){ 
                     myApp.alert('Thank you for registering. Login?', function(){
                           $('.navbar').removeClass('hidden');
-                          mainView.router.loadPage('http://54.69.118.223/imjamin/www/profile.html');
+                           mainView.router.loadPage('http://54.69.118.223/imjamin/www/profile.html');
+                         
+
                    });
                 }
                 else{ myApp.alert('There was an error with your code! Try again.', function () {
-                         verification_code(postData.mobile);
+                           verification_code(postData.mobile);
                     });  
                 }
                }

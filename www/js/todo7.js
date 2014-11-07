@@ -148,8 +148,8 @@ $$('.todo-items-list').on('delete', '.swipeout', function () {
                     myApp.alert('Thank you for registering. Login?', function(){
 
                            mainView.router.loadPage('http://54.69.118.223/imjamin/www/register.html');
-                         
 
+            
                    });
                 }
                 else{ myApp.alert('There was an error with your code! Try again.', function () {

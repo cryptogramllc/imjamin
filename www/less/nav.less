@@ -1,4 +1,6 @@
 .navbar{
+			border-bottom:1px solid #c4c4c4;
+			background: #f7f7f8;
 	&.hidden{ visibility: hidden;}
 	.navbar-inner{
 	 	    -webkit-transition: background-color 100ms linear;
@@ -10,7 +12,7 @@
 	}
 	.navbar-on-center, .navbar-on-left, .navbar-from-center-to-left{
 		background-color: #f7f7f8;
-		border-bottom:1px solid #c4c4c4;
+
 		.link{
 			color: #cc0442 !important;
 		}
@@ -18,4 +20,17 @@
 			color:#000;
 		}
 	}
-}
+    .icon-music3{
+    	&:before{
+    		font-size: 24px;
+			position: absolute;
+    	}
+	}
+    .icon-arrow-left{
+	   &:before{
+		font-size: 30px;
+		position: absolute;
+	
+       }
+    }
+} 

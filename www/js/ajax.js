@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
 
@@ -96,7 +95,7 @@ $(document).ready(function(){
             }
             else{
           
-                mainView.router.loadPage('http://54.69.118.223/imjamin/www/profile.html');
+                mainView.router.loadPage('http://54.69.118.223/imjamin/www/register.html');
 
             }
        	  }

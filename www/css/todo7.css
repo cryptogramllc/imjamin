@@ -1,3 +1,19 @@
+.button {
+  border: 1px solid #cc0442;
+  color: #cc0442;
+}
+textarea.status-input {
+  margin: 10px auto;
+  -webkit-appearance: none;
+  width: 90%;
+  display: block;
+  background: #f7f7f8;
+  text-align: left;
+  border-color: #cc0442;
+  height: 50px;
+  border-radius: 5px;
+  padding: 10px;
+}
 body {
   background: #000;
 }
@@ -29,11 +45,6 @@ html.ios .page {
 }
 html.ios .page-content {
   margin-bottom: 1px;
-}
-.view-main .navbar {
-  border-bottom: none;
-  background: transparent;
-  color: #fff;
 }
 i.icon-plus {
   color: #fff;

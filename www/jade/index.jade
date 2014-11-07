@@ -43,120 +43,23 @@ html(manifest="manifest.php")
               //- i.icon.icon-list
         .toolbar
           .toolbar-inner
-            a.link Home
-            a.link Chats
-            a.link Profile
-            a.link Exit
+            a.link.home.active(href="home.html")  
+              span.icon-home.ico
+              span.type Home
+            a.link.chats(href="chats.html")
+              span.icon-bubbles.ico
+              span.type Chats
+            a.link.profile(href="profile.html") 
+              span.icon-user.ico
+              span.type Profile
+            a.link.exit 
+              span.icon-exit.ico
+              span.type Exit
         .pages
           .page.no-toolbar.no-navbar(data-page="index")
             .page-content
               .main-title IM JAMIN
               h2(style="color:#fff;font-family: 'Dorsa', sans-serif;font-size: 40px;letter-spacing: 4px;text-align: center;opacity: 0.5;") Please Wait
-              //- .feilds.sign-in
-                form(id="sign-in", class="store-data list-block ajax-submit", action="/server/server.php", method="GET")
-                  ul
-                    li
-                      label.label-radio.item-content
-                        input(type="radio", name="country", value="+1", checked="checked", id="US")
-                        div.item-inner
-                            div.item-title United States (+1)
-                    li
-                      label.label-radio.item-content
-                        input(type="radio", name="country", value="+44", checked="", id="UK")
-                        div.item-inner
-                            div.item-title United Kingdom (+44)
-                    li
-                      div.item-content
-                        div.item-media
-                          i.icon.icon-form-tel
-                        div.item-inner
-                           div.item-title.label Mobile
-                           div.item-input
-                               input(type="tel", placeholder="Your Mobile", name="mobile", id="mobile")
-                 a.button.done.prompt-ok(href="#") Done 
-                 a.home_page.hidden(href="profile.html") Home       
-              //- .register
-                  p Not a member yet? Click <a href="#" class="link icon-only open-popup">here</a> to sign up. 
-
-    // Popup to add new task           
-    //- .popup
-      .view.view-popup.navbar-fixed
-        .navbar
-          .navbar-inner
-            .left
-            .center.sliding Register
-            .right
-                a(href="#").link.close-popup Cancel
-        .pages
-          .page
-            .page-content
-              .register-block
-                form(id="register", class="store-data list-block ajax-submit", action="/server/upload.php", method="post", encrypt="multipart/form-data")
-                  ul
-                    li
-                      div.item-content
-                        div.item-media
-                          i.icon.icon-form-name
-                        div.item-inner
-                           div.item-title.label Name
-                           div.item-input
-                             input(type="text", placeholder="Your Name", name="name", id="name")  
-                    li
-                      div.item-content
-                        div.item-media
-                          i.icon.icon-form-email
-                        div.item-inner
-                           div.item-title.label Email
-                           div.item-input
-                             input(type="email", placeholder="Your Email", name="email", id="email")
-                    li
-                      label.label-radio.item-content
-                        input(type="radio", name="country", value="+1", checked="checked", id="US")
-                        div.item-inner
-                            div.item-title United States (+1)
-                    li
-                      label.label-radio.item-content
-                        input(type="radio", name="country", value="+44", checked="", id="UK")
-                        div.item-inner
-                            div.item-title United Kingdom (+44)
-                    li
-                      div.item-content
-                        div.item-media
-                          i.icon.icon-form-tel
-                        div.item-inner
-                           div.item-title.label Mobile
-                           div.item-input
-                             input(type="tel", placeholder="Your Mobile", name="mobile", id="mobile")
-                    li
-                      div.item-content
-                        div.item-media
-                          i.icon.icon-form-password
-                        div.item-inner
-                           div.item-title.label Password
-                           div.item-input
-                             input(type="password", placeholder="Choose Password", name="password", id="password")
-                    li
-                      div.item-content
-                        div.item-media
-                          i.icon.icon-form-password
-                        div.item-inner
-                           div.item-title.label Confirm
-                           div.item-input
-                             input(type="password", placeholder="Confirm Password", name="confirm", id="confirm")
-                    li
-                      div.item-content
-                        div.item-media
-                          i.icon.icon-form
-                        div.item-inner
-                           div.item-title.label Avatar
-                           div.item-input
-                             input(type="file", placeholder="Choose an avatar", name="avatar", class="visibility-hidden", id="avatar")
-                             a.button.fileUpload Choose an Avatar 
-
-                  div(id="output")  
-
-
-                  a.button.register Register
             
     .col-25
       span(style="width:42px; height:42px", class="preloader preloader")

@@ -82,7 +82,10 @@ $$('.popup .add-task').on('click', function () {
     myApp.closeModal('.popup');
 });
 
-
+$$('.toolbar .link').on('click', function () {
+    $('.toolbar .link').removeClass('active');
+    $(this).addClass('active');
+});
 
 
 // Build Todo HTML using Template7 template engine
@@ -121,6 +124,9 @@ $$('.todo-items-list').on('delete', '.swipeout', function () {
 });
 
 
+
+
+
  function ajaxCall(data){
 
       var postData = data;
@@ -140,10 +146,10 @@ $$('.todo-items-list').on('delete', '.swipeout', function () {
               if(postData.type == 'verify'){
                 if(data == 'success'){ 
                     myApp.alert('Thank you for registering. Login?', function(){
-                          $('.navbar').removeClass('hidden');
-                           mainView.router.loadPage('http://54.69.118.223/imjamin/www/profile.html');
-                         
 
+                           mainView.router.loadPage('http://54.69.118.223/imjamin/www/register.html');
+
+            
                    });
                 }
                 else{ myApp.alert('There was an error with your code! Try again.', function () {

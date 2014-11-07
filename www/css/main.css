@@ -54,6 +54,9 @@ body {
 .page {
   background: none;
 }
+.main-page .page-content {
+  background: #efeff4;
+}
 html.ios .page {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -224,9 +227,6 @@ body.with-popup .statusbar-overlay {
     z-index: 11000;
   }
 }
-.statusbar-overlay {
-  background: #cc0442;
-}
 .modal-inner {
   background: #cc0442;
   color: #fff;
@@ -253,7 +253,7 @@ body.with-popup .statusbar-overlay {
   border: none;
   background: none;
 }
-#register a.button {
+#register .button {
   border-color: #cc0442;
   color: #cc0442;
 }
@@ -271,9 +271,6 @@ body.with-popup .statusbar-overlay {
 #register .visibility-hidden {
   visibility: hidden;
 }
-#register .fileUpload {
-  margin-top: -20px;
-}
 #register #avatar_preview {
   border-radius: 100%;
   border: 1px solid #fff;
@@ -285,12 +282,6 @@ body.with-popup .statusbar-overlay {
   -webkit-transform: rotate(90deg);
   /* Chrome, Safari, Opera */
   transform: rotate(90deg);
-}
-.home .page-content {
-  background: #efeff4;
-}
-.login .page-content {
-  background: #efeff4;
 }
 .col-25 {
   position: absolute;
@@ -346,8 +337,8 @@ body.with-popup .statusbar-overlay {
 .sign-in a.home_page {
   display: none;
 }
-nav.bar.bar-tab.hidden {
-  display: none;
+.toolbar .link {
+  font-size: 12px;
 }
 @font-face {
   font-family: Ratchicons;

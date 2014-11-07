@@ -6,50 +6,39 @@
     <div class="center sliding">Profile</div>
     <div class="right"><a class="link icon-only open-panel"><i class="icon icon-list"></i></a></div>
   </div>
-  <div class="pages">
-    <div data-page="home" class="page home">
-      <div class="page-content">
-        <div class="content-block">
-          <div class="register-block">
-            <form id="register" action="" method="post" encrypt="multipart/form-data" class="store-data list-block ajax-submit">
-              <ul>
-                <li>
-                  <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form-name"></i></div>
-                    <div class="item-inner">
-                      <div class="item-title label">Name</div>
-                      <div class="item-input">
-                        <input type="text" placeholder="Your Name" name="name" id="name"/>
-                      </div>
+</div>
+<div class="pages">
+  <div data-page="home" class="page home">
+    <div class="page-content">
+      <div class="content-block">
+        <div class="register-block">
+          <form id="register" action="" method="post" encrypt="multipart/form-data" class="store-data list-block ajax-submit">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="icon icon-form-name"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title label">Name</div>
+                    <div class="item-input">
+                      <input type="text" placeholder="Your Name" name="name" id="name"/>
                     </div>
                   </div>
-                </li>
-                <li>
-                  <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form-email"></i></div>
-                    <div class="item-inner">
-                      <div class="item-title label">Email</div>
-                      <div class="item-input">
-                        <input type="email" placeholder="Your Email" name="email" id="email"/>
-                      </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="icon icon-form"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title label">Avatar</div>
+                    <div class="item-input">
+                      <button onclick="getImage();" class="button">Upload Photo</button>
                     </div>
                   </div>
-                </li>
-                <li>
-                  <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form"></i></div>
-                    <div class="item-inner">
-                      <div class="item-title label">Avatar</div>
-                      <div class="item-input">
-                        <input type="file" placeholder="Choose an avatar" name="avatar" id="avatar" onclick="getImage();" class="visibility-hidden"/><a class="button fileUpload">Choose an Avatar </a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <div id="message">     </div><a class="button register">Register</a>
-            </form>
-          </div>
+                </div>
+              </li>
+            </ul>
+            <div id="message">     </div><a class="button register">Register</a>
+          </form>
         </div>
       </div>
     </div>

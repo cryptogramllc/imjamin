@@ -20,7 +20,22 @@
 @orange: #ff8400;
 @purple: #ff00f0;
 @cyan: #00fff6;
-
+.button{
+    border: 1px solid @pink;
+    color: @pink;
+}
+textarea.status-input{
+     margin: 10px auto;
+    -webkit-appearance: none;
+    width: 90%;
+    display: block;
+    background: #f7f7f8;
+    text-align: left;
+    border-color: @pink;
+    height: 50px;
+    border-radius:5px;
+    padding:10px;
+}
 body {
     background: #000;
 }
@@ -34,10 +49,18 @@ body {
 .pages, .page {
     background: none;
 }
+
+.main-page{
+     .page-content {
+        background: #efeff4;
+    }
+
+}
 html.ios {
     .page {
         overflow: auto;
         -webkit-overflow-scrolling: touch;
+
     }
     .page-content {
         margin-bottom: 1px;
@@ -46,9 +69,7 @@ html.ios {
 .view-main {
 
     .navbar {
-        border-bottom: none;
-        background: transparent;
-        color: #fff;
+      
     }
 }
 i.icon-plus {
@@ -203,7 +224,7 @@ body.with-popup {
     }
 }
 .statusbar-overlay {
-    background: @pink;
+    // background: @pink;
 }
 
 .modal-inner {

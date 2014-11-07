@@ -11,7 +11,7 @@
   border: none;
   background: none;
 }
-#register a.button {
+#register .button {
   border-color: #cc0442;
   color: #cc0442;
 }
@@ -28,9 +28,6 @@
 }
 #register .visibility-hidden {
   visibility: hidden;
-}
-#register .fileUpload {
-  margin-top: -20px;
 }
 #register #avatar_preview {
   border-radius: 100%;

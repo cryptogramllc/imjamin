@@ -359,6 +359,7 @@ body.with-popup .statusbar-overlay {
 .sign-in a.home_page {
   display: none;
 }
+<<<<<<< HEAD
 .toolbar {
   height: 50px;
 }
@@ -469,6 +470,10 @@ body.with-popup .statusbar-overlay {
 }
 .icon-arrow-left:before {
   content: "\e616";
+=======
+.toolbar .link {
+  font-size: 12px;
+>>>>>>> a2af0bc95f3ed0788676c4220c387a7c9b0c3171
 }
 @font-face {
   font-family: Ratchicons;

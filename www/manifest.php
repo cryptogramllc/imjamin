@@ -1,12 +1,14 @@
 <?php
 header('Content-Type: text/cache-manifest');
 $filesToCache = array(
-    'index.html', 
+    /*
+'index.html', 
     'js/todo7.js', 
     'css/todo7.css', 
     'img/bg.jpg', 
     'dist/js/framework7.min.js', 
     'dist/css/framework7.min.css'
+*/
 );
 ?>
 CACHE MANIFEST
@@ -24,5 +26,5 @@ foreach($filesToCache as $file) {
 NETWORK:
 *
 
->>>>>>> cf2114437ca537ddb0a01ae43a929b37dc66c6d9
+
 # Hash Version: <?=md5($hashes)?>

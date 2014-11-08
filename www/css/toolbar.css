@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .toolbar {
   height: 50px;
 }
@@ -20,8 +19,4 @@
 }
 .toolbar a.link.active {
   color: #cc0442;
-=======
-.toolbar .link {
-  font-size: 12px;
->>>>>>> a2af0bc95f3ed0788676c4220c387a7c9b0c3171
 }

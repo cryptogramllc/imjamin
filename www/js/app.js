@@ -50,13 +50,6 @@
    
 
 
-// $('audio').prop("currentTime",77)[0].play();
-// setTimeout(function(){
-// $('audio')[0].pause();
-// }, 5000);
-
-
-
     
     
    

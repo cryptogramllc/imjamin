@@ -201,7 +201,7 @@ myApp.onPageAfterAnimation("status", function(){
                   var artist = value.track_info.artist;
                   var song = value.track_info.song;
 
-                $('.media-list ul').append("<li>"+
+                  $('.media-list ul').append("<li>"+
                        "<a href='status.html' data-user='"+ status_user_id +"' class='item-link status item-content'>"+
                           " <div class='item-media'>" +
                                 "<img src='"+ user_avatar +"' width='60' />" +
@@ -211,23 +211,102 @@ myApp.onPageAfterAnimation("status", function(){
                                "<div class='item-title'>"+ user_name +"</div>" +
                                "<div class='item-after'> </div>" +
                             "</div>" +
-                                "<div class='item-subtitle'>Listening to <strong style='color:#cc0442; font-size:15px;'>"+ song +"</strong> by <em>"+ artist +"</em></div>" +
+                                "<div class='item-subtitle'>Listening to <strong style='color:#ff2d55; font-size:15px;'>"+ song +"</strong> by <em>"+ artist +"</em></div>" +
                                 "<div class='item-text' style='line-height:120%; font-size:13px;'>"+ status_quote +"</div>" +
                            "</div>" +
                       "</a>" +
-                     "</li>");    
+                  "</li>");    
          });    
    
           
    } 
   function load_search(data){
     console.log(data);
+    $.each(data, function(index, value){
+
+
+
+
+    });
   }
 
   function load_status(data) {
     
+  
     console.log(data);
-  }
+
+    var status = data.status_info.status;
+    var track = data.track_info.file;
+    var cover = data.track_info.cover;
+    var song = data.track_info.song;
+    var artist = data.track_info.artist;
+    var album = data.track_info.Album;
+    var avatar = data.user.avatar;
+    var name = data.user.name;
+    
+    var start_time = parseInt(data.status_info.start);
+    var end_time = parseInt(data.status_info.stop);
+
+    var duration = ((end_time - start_time) + 1) * 1000;     
+
+    $('.status .content-block').html('<div class="upper">' +
+                                        '<div class= "avatar left"><img src="'+ avatar +'" height="60" /><span class="u_name">'+ name +'</span></div>' +
+                                        '<div class= "status right"><blockquote>'+ status +'</blockquote></div>' +                                      
+                                      '</div>' +
+                                      '<div class="bottom">'+
+                                        '<div class="cover" style="background-image:url('+ cover +')">'+
+                                             '<div class="pace hidden"><div class="pace-progress"></div></div>'+
+                                             '<div class="play_button icon icon-play "></div>'+
+                                             '<audio id="track" src="http://54.69.118.223/media/'+ track +'">'+
+                                             '</audio>'+
+                                        '</div>'+
+                                        '<div class="track_info">' +
+                                            '<div class="album">Album: '+ album +'</div>'+
+                                            '<div class="song">Track: "'+ song +'"</div>'+
+                                            '<div class="artist">Artist: '+ artist +'</div>'+
+                                         '</div>'+     
+                                     '</div>');
+   
+                                      var audio = document.getElementById('track');
+                                      audio.addEventListener("canplay", function(){
+                                           console.log('can play');
+                                           audio.play();
+                                           audio.pause();
+
+
+                                      });
+
+                                      $('body').on('click', '.play_button', function(){
+                                          
+                                            $('.play_button').hide();
+                                            $('.pace').show();
+                                            $('.pace-progress').css({'-webkit-transition': 'width '+ duration +'ms linear', 'transition': 'width '+ duration +'ms linear'});
+                                            audio.play();
+                                            audio.currentTime = start_time;
+
+                                             setTimeout(function(){
+                                                audio.pause();
+                                            }, duration);
+
+
+                                      });
+
+                                                                            
+                                    
+                                      audio.addEventListener("play", function(){
+
+                                            console.log('playing');
+                                            $('.pace-progress').addClass('go');
+                                      },false);
+
+                                       audio.addEventListener("pause", function(){
+                                             console.log('paused');
+                                             $('.play_button').show();
+                                             $('.pace').hide();
+                                            $('.pace-progress').removeClass('go');
+                                       });
+}
+
 
 // Update app when manifest updated 
 // http://www.html5rocks.com/en/tutorials/appcache/beginner/

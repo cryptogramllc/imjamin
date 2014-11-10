@@ -305,6 +305,9 @@ body.with-popup .statusbar-overlay {
   /* Chrome, Safari, Opera */
   transform: rotate(90deg);
 }
+.home .item-media img {
+  border-radius: 100%;
+}
 .col-25 {
   position: absolute;
   top: 0;
@@ -598,4 +601,7 @@ body.with-popup .statusbar-overlay {
 }
 .icon-left:before {
   content: '\e822';
+}
+.status audio.hidden {
+  display: none;
 }

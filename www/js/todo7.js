@@ -3,6 +3,7 @@ var myApp = new Framework7({
     modalTitle: 'ToDo7'
 });
 
+
 // Export selectors engine
 var $$ = Dom7;
 
@@ -14,6 +15,8 @@ var mainView = myApp.addView('.view-main', {
 });
 
 var todoData = localStorage.td7Data ? JSON.parse(localStorage.td7Data) : [];
+
+var status;
 
 $$('.popup').on('open', function () {
     $$('body').addClass('with-popup');
@@ -123,49 +126,108 @@ $$('.todo-items-list').on('delete', '.swipeout', function () {
     }
 });
 
+$('body').on('keypress', 'input[type="search"]', function(){
+   console.log('search');
+   var type = 'search_library';
+   var keyword = $(this).val();
+   data = {type:type, keyword:keyword}
+   ajaxCall(data);
+});
+
+$('body').on('click', '.status', function(){
+    status = $(this).attr('data-user');
+});
+
+myApp.onPageAfterAnimation("home", function(){
+    type = "get_contacts";
+    data = {type:type}; 
+    ajaxCall(data);
+});
 
 
-
+myApp.onPageAfterAnimation("status", function(){
+    type = "get_status";
+    data = {type:type, status:status}; 
+    ajaxCall(data);
+});
 
  function ajaxCall(data){
 
-      var postData = data;
+       var postData = data;
      
-       console.log(postData);
+       // console.log(postData);
        $.ajax({
           url: 'http://54.69.118.223/server/server.php',
           type: 'POST',
           data: postData,
-          dataType: 'html',
+          dataType: 'JSON',
           cache: false,
           beforeSend:function(){
-
+                $('.col-25').show();
           },
           success: function(data){
-            console.log(data);
-              if(postData.type == 'verify'){
-                if(data == 'success'){ 
-                    myApp.alert('Thank you for registering. Login?', function(){
+              $('.col-25').hide();
 
-                           mainView.router.loadPage('http://54.69.118.223/imjamin/www/register.html');
-
-            
-                   });
-                }
-                else{ myApp.alert('There was an error with your code! Try again.', function () {
-                           verification_code(postData.mobile);
-                    });  
-                }
-               }
+              eval(data.function)(data);
+              // $('.media-list ul').html(data);
+        
+              // if(postData.type == 'verify'){
+              //   if(data == 'success'){ 
+              //       myApp.alert('Thank you for registering. Login?', function(){
+              //              mainView.router.loadPage('http://54.69.118.223/imjamin/www/register.html');
+              //      });
+              //   }
+              //   else{ myApp.alert('There was an error with your code! Try again.', function () {
+              //              verification_code(postData.mobile);
+              //       });  
+              //   }
+              //  }
           }
      
        }); 
 
    }
+   
+   function load_contacts(data){
 
+        $('.media-list ul').empty();
+         $.each(data, function(index, value){
+             console.log(value);
+                  var status_user_id = value.status.user_id;
+                  var status_quote = value.status.status;
+                  var user_avatar = value.user.avatar;
 
+                  var user_name = value.user.name;
+                  var artist = value.track_info.artist;
+                  var song = value.track_info.song;
 
+                $('.media-list ul').append("<li>"+
+                       "<a href='status.html' data-user='"+ status_user_id +"' class='item-link status item-content'>"+
+                          " <div class='item-media'>" +
+                                "<img src='"+ user_avatar +"' width='60' />" +
+                           "</div>" +
+                           "<div class='item-inner'>" +
+                            "<div class='item-title-row'>" +
+                               "<div class='item-title'>"+ user_name +"</div>" +
+                               "<div class='item-after'> </div>" +
+                            "</div>" +
+                                "<div class='item-subtitle'>Listening to <strong style='color:#cc0442; font-size:15px;'>"+ song +"</strong> by <em>"+ artist +"</em></div>" +
+                                "<div class='item-text' style='line-height:120%; font-size:13px;'>"+ status_quote +"</div>" +
+                           "</div>" +
+                      "</a>" +
+                     "</li>");    
+         });    
+   
+          
+   } 
+  function load_search(data){
+    console.log(data);
+  }
 
+  function load_status(data) {
+    
+    console.log(data);
+  }
 
 // Update app when manifest updated 
 // http://www.html5rocks.com/en/tutorials/appcache/beginner/

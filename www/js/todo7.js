@@ -232,7 +232,6 @@ myApp.onPageAfterAnimation("status", function(){
 
   function load_status(data) {
     
-  
     console.log(data);
 
     var status = data.status_info.status;
@@ -247,64 +246,80 @@ myApp.onPageAfterAnimation("status", function(){
     var start_time = parseInt(data.status_info.start);
     var end_time = parseInt(data.status_info.stop);
 
-    var duration = ((end_time - start_time) + 1) * 1000;     
+    var duration = ((end_time - start_time) + 2) * 1000;     
 
     $('.status .content-block').html('<div class="upper">' +
-                                        '<div class= "avatar left"><img src="'+ avatar +'" height="60" /><span class="u_name">'+ name +'</span></div>' +
-                                        '<div class= "status right"><blockquote>'+ status +'</blockquote></div>' +                                      
-                                      '</div>' +
-                                      '<div class="bottom">'+
-                                        '<div class="cover" style="background-image:url('+ cover +')">'+
-                                             '<div class="pace hidden"><div class="pace-progress"></div></div>'+
-                                             '<div class="play_button icon icon-play "></div>'+
-                                             '<audio id="track" src="http://54.69.118.223/media/'+ track +'">'+
-                                             '</audio>'+
-                                        '</div>'+
-                                        '<div class="track_info">' +
-                                            '<div class="album">Album: '+ album +'</div>'+
-                                            '<div class="song">Track: "'+ song +'"</div>'+
-                                            '<div class="artist">Artist: '+ artist +'</div>'+
-                                         '</div>'+     
-                                     '</div>');
-   
-                                      var audio = document.getElementById('track');
-                                      audio.addEventListener("canplay", function(){
-                                           console.log('can play');
-                                           audio.play();
-                                           audio.pause();
-
-
-                                      });
-
-                                      $('body').on('click', '.play_button', function(){
-                                          
-                                            $('.play_button').hide();
-                                            $('.pace').show();
-                                            $('.pace-progress').css({'-webkit-transition': 'width '+ duration +'ms linear', 'transition': 'width '+ duration +'ms linear'});
-                                            audio.play();
-                                            audio.currentTime = start_time;
-
-                                             setTimeout(function(){
-                                                audio.pause();
-                                            }, duration);
-
-
-                                      });
-
-                                                                            
+        '<div class= "avatar left"><img src="'+ avatar +'" height="60" /><span class="u_name">'+ name +'</span></div>' +
+        '<div class= "status right"><blockquote>'+ status +'</blockquote></div>' +                                      
+      '</div>' +
+      '<div class="bottom">'+
+        '<div class="cover" style="background-image:url('+ cover +')">'+
+               '<audio id="track"></audio>'+
+             '<div class="pace hidden"><div class="pace-progress" style="transition: width '+ duration + 'ms linear;-webkit-transition: width '+ duration + 'ms linear;"> </div></div>'+
+             '<div class="play_button icon icon-play "></div>'+
+        '</div>'+
+        '<div class="track_info">' +
+            '<div class="album">Album: '+ album +'</div>'+
+            '<div class="song">Track: "'+ song +'"</div>'+
+            '<div class="artist">Artist: '+ artist +'</div>'+
+         '</div>'+     
+     '</div>'); 
+                                   //      $('.cover').hide();
                                     
-                                      audio.addEventListener("play", function(){
+                                   //   $('#track')[0].oncanplay = function () {
+                                   //       $('.col-25').hide();
+                                   //        $('.cover').show();
+                                   //        console.log('can play')
+                                   //   }
 
-                                            console.log('playing');
-                                            $('.pace-progress').addClass('go');
-                                      },false);
+                                    $('.play_button').on('click', function(){
+                                              $('.play_button').hide();
+                                              $('.col-25').show();
+                                              $('.pace').show();
+                                              // $('.pace').show();
+                                              // $('#track')[0].currentTime = start_time;
+                                              // $('#track')[0].play();
 
-                                       audio.addEventListener("pause", function(){
-                                             console.log('paused');
-                                             $('.play_button').show();
-                                             $('.pace').hide();
-                                            $('.pace-progress').removeClass('go');
-                                       });
+                                              var audio = document.getElementById('track');
+                                              audio.play();
+                                              // Sometime Later
+                                              audio.src = 'http://54.69.118.223/media/'+ track;
+                                              audio.addEventListener('canplaythrough', function(){
+                                                
+                                                   audio.currentTime = start_time;
+                                                   audio.play();
+                                              }, false);
+
+                                              audio.addEventListener('playing', function(){
+                                                  $('.col-25').hide();
+                                                  $('.pace-progress').addClass('go');
+                                                      setTimeout(function(){
+                                                      $('.play_button').show();
+                                                      $('.pace').hide();
+                                                      $('.pace-progress').removeClass('go');
+                                                        audio.pause();
+                                                      }, duration);
+                                              }, false);
+                                    });
+
+
+
+                                   // $('#track').on('play', function(){
+                                   //         $('.pace-progress').addClass('go');
+                                   //        console.log('playing');
+                                   //        setTimeout(function(){
+                                   //          $('#track')[0].pause();
+                                   //        }, duration);
+                                   // });
+
+                                   // $('#track').on('pause', function(){
+                                   //     $('.play_button').show();
+                                   //     $('.pace').hide();
+                                   //     $('.pace-progress').removeClass('go');
+
+
+
+                                   // });
 }
 
 

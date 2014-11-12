@@ -3,6 +3,7 @@ var myApp = new Framework7({
     modalTitle: 'ToDo7'
 });
 
+    var wavesurfer = Object.create(WaveSurfer);
 
 // Export selectors engine
 var $$ = Dom7;
@@ -349,7 +350,46 @@ myApp.onPageInit("clip", function(page){
 
 
  function load_track (data) {
-    console.log(data);
+    $('.col-25').show();
+
+    var track = 'http://54.69.118.223/media/' + data.track.file;
+
+    wavesurfer.init({
+        container: '#waveform',
+        waveColor: '#ff2d55',
+        progressColor: 'purple'
+    });
+
+    wavesurfer.on('ready', function () {
+        $('.col-25').hide();
+        wavesurfer.addRegion({'start': 0, 'end': 20, 'drag' : true});
+        $('wave > wave').remove();
+
+        // var moveMe = function(e) {
+        //   e.preventDefault();
+        //   var width = $(this).width();
+        //   var orig = e.originalEvent;
+        //   $(this).css({
+        //     left: orig.changedTouches[0].pageX - width
+        //   });
+        // };
+        // $(".wavesurfer-region").bind("touchstart touchmove", moveMe);
+
+    });
+     
+    wavesurfer.load(track);
+    
+    $('#waveform').bind('click' , function(e) {
+      $('.wavesurfer-region').remove();
+      var offset = $(this).offset();
+
+      var canvas_width = $('canvas').width();
+      var start = e.clientX - offset.left;
+      var end = start + 20;
+      wavesurfer.addRegion({'start': start, 'end': end, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
+
+     });
+ 
  }
 
 // Update app when manifest updated 

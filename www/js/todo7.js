@@ -151,6 +151,12 @@ myApp.onPageAfterAnimation("status", function(){
     ajaxCall(data);
 });
 
+myApp.onPageInit("clip", function(page){
+  type = "get_track";
+        data = {type:type, page: page.url};
+       ajaxCall(data);
+});
+
  function ajaxCall(data){
 
        var postData = data;
@@ -221,10 +227,29 @@ myApp.onPageAfterAnimation("status", function(){
           
    } 
   function load_search(data){
-    console.log(data);
+    // console.log(data);
+      $('.media-list.results ul').empty();
     $.each(data, function(index, value){
-
-
+        var cover = value.info.cover;
+        var song = value.info.song;
+        var artist = value.info.artist;
+        var album = value.info.Album;
+        var id = value.info.id;
+        $('.media-list.results ul').append("<li>" +
+                    "<a href='clip.html?t_id="+ id +"'  class='item-link media item-content'>"+
+                    " <div class='item-media'>" +
+                                  "<img src='"+ cover +"' width='60' />" +
+                             "</div>" +
+                             "<div class='item-inner'>" +
+                              "<div class='item-title-row'>" +
+                                 "<div class='item-title'>"+ artist +"</div>" +
+                                 "<div class='item-after'> </div>" +
+                              "</div>" +
+                                  "<div class='item-subtitle'><strong style='color:#ff2d55; font-size:15px;'>"+ song +"</strong></div>" +
+                                  "<div class='item-text' style='line-height:120%; font-size:13px;'>"+ album +"</div>" +
+                             "</div>" +
+                        "</a>" +
+                    "</li>");
 
 
     });
@@ -322,6 +347,10 @@ myApp.onPageAfterAnimation("status", function(){
                                    // });
 }
 
+
+ function load_track (data) {
+    console.log(data);
+ }
 
 // Update app when manifest updated 
 // http://www.html5rocks.com/en/tutorials/appcache/beginner/

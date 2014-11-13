@@ -690,6 +690,11 @@ body.with-popup .statusbar-overlay {
 .status .hidden {
   display: none;
 }
+.clip .button.play-back {
+  width: 50%;
+  margin: 0 auto;
+  display: table;
+}
 .pace {
   -webkit-pointer-events: none;
   pointer-events: none;

@@ -3,7 +3,9 @@ var myApp = new Framework7({
     modalTitle: 'ToDo7'
 });
 
-    var wavesurfer = Object.create(WaveSurfer);
+var wavesurfer = Object.create(WaveSurfer);
+
+var status_obj = {};
 
 // Export selectors engine
 var $$ = Dom7;
@@ -362,18 +364,11 @@ myApp.onPageInit("clip", function(page){
 
     wavesurfer.on('ready', function () {
         $('.col-25').hide();
-        wavesurfer.addRegion({'start': 0, 'end': 20, 'drag' : true});
+        wavesurfer.addRegion({'start': 0, 'end': 20, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
+     
         $('wave > wave').remove();
-
-        // var moveMe = function(e) {
-        //   e.preventDefault();
-        //   var width = $(this).width();
-        //   var orig = e.originalEvent;
-        //   $(this).css({
-        //     left: orig.changedTouches[0].pageX - width
-        //   });
-        // };
-        // $(".wavesurfer-region").bind("touchstart touchmove", moveMe);
+        
+    
 
     });
      
@@ -384,20 +379,35 @@ myApp.onPageInit("clip", function(page){
        e.preventDefault();
       var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
       //CODE GOES HERE
-      $('.wavesurfer-region').remove();
+      
       var offset = $(this).offset();
 
       var slider_width = $('.wavesurfer-region').width();
-      var start = touch.pageX - (slider_width * 2);
+      var pageX = touch.pageX;
+      var start = pageX;
       var end = start + 20;
       console.clear();
-      console.log(touch.pageY+' '+touch.pageX);
+      console.log(pageX);
+      
+      console.log(start);
+      wavesurfer.clearRegions();
       wavesurfer.addRegion({'start': start, 'end': end, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
+      $('.clip .button').text('play');
 
      });
 
-  
+     
+     $('.play-back').bind('click', function(){
+           var start, end; 
+          $.each(wavesurfer.regions.list, function(index, value){
+              start =  value.start;
+              end =  value.end;
+          });
 
+        wavesurfer.play(start, end);
+        $(this).text('I Like this clip!');
+        
+     });
 
  }
 

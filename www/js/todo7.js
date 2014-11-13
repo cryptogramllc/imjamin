@@ -378,18 +378,27 @@ myApp.onPageInit("clip", function(page){
     });
      
     wavesurfer.load(track);
-    
-    $('#waveform').bind('click' , function(e) {
+   
+    $('#waveform').bind('touchstart touchmove' , function(e) {
+       e.preventDefault();
+       e.preventDefault();
+      var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+      //CODE GOES HERE
       $('.wavesurfer-region').remove();
       var offset = $(this).offset();
 
-      var canvas_width = $('canvas').width();
-      var start = e.clientX - offset.left;
+      var slider_width = $('.wavesurfer-region').width();
+      var start = touch.pageX - (slider_width * 2);
       var end = start + 20;
+      console.clear();
+      console.log(touch.pageY+' '+touch.pageX);
       wavesurfer.addRegion({'start': start, 'end': end, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
 
      });
- 
+
+  
+
+
  }
 
 // Update app when manifest updated 

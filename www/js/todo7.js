@@ -292,62 +292,37 @@ myApp.onPageInit("clip", function(page){
             '<div class="artist">Artist: '+ artist +'</div>'+
          '</div>'+     
      '</div>'); 
-                                   //      $('.cover').hide();
-                                    
-                                   //   $('#track')[0].oncanplay = function () {
-                                   //       $('.col-25').hide();
-                                   //        $('.cover').show();
-                                   //        console.log('can play')
-                                   //   }
+                                  
 
-                                    $('.play_button').on('click', function(){
-                                              $('.play_button').hide();
-                                              $('.col-25').show();
-                                              $('.pace').show();
-                                              // $('.pace').show();
-                                              // $('#track')[0].currentTime = start_time;
-                                              // $('#track')[0].play();
+      $('.play_button').on('click', function(){
+                $('.play_button').hide();
+                $('.col-25').show();
+                $('.pace').show();
+                // $('.pace').show();
+                // $('#track')[0].currentTime = start_time;
+                // $('#track')[0].play();
 
-                                              var audio = document.getElementById('track');
-                                              audio.play();
-                                              // Sometime Later
-                                              audio.src = 'http://54.69.118.223/media/'+ track;
-                                              audio.addEventListener('canplaythrough', function(){
-                                                
-                                                   audio.currentTime = start_time;
-                                                   audio.play();
-                                              }, false);
+                var audio = document.getElementById('track');
+                audio.play();
+                // Sometime Later
+                audio.src = 'http://54.69.118.223/media/'+ track;
+                audio.addEventListener('canplaythrough', function(){
+                  
+                     audio.currentTime = start_time;
+                     audio.play();
+                }, false);
 
-                                              audio.addEventListener('playing', function(){
-                                                  $('.col-25').hide();
-                                                  $('.pace-progress').addClass('go');
-                                                      setTimeout(function(){
-                                                      $('.play_button').show();
-                                                      $('.pace').hide();
-                                                      $('.pace-progress').removeClass('go');
-                                                        audio.pause();
-                                                      }, duration);
-                                              }, false);
-                                    });
-
-
-
-                                   // $('#track').on('play', function(){
-                                   //         $('.pace-progress').addClass('go');
-                                   //        console.log('playing');
-                                   //        setTimeout(function(){
-                                   //          $('#track')[0].pause();
-                                   //        }, duration);
-                                   // });
-
-                                   // $('#track').on('pause', function(){
-                                   //     $('.play_button').show();
-                                   //     $('.pace').hide();
-                                   //     $('.pace-progress').removeClass('go');
-
-
-
-                                   // });
+                audio.addEventListener('playing', function(){
+                    $('.col-25').hide();
+                    $('.pace-progress').addClass('go');
+                        setTimeout(function(){
+                        $('.play_button').show();
+                        $('.pace').hide();
+                        $('.pace-progress').removeClass('go');
+                          audio.pause();
+                        }, duration);
+                }, false);
+      });
 }
 
 
@@ -364,10 +339,11 @@ myApp.onPageInit("clip", function(page){
 
     wavesurfer.on('ready', function () {
         $('.col-25').hide();
+         wavesurfer.clearRegions();
         wavesurfer.addRegion({'start': 0, 'end': 20, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
-     
         $('wave > wave').remove();
-        
+         wavesurfer.play();
+        wavesurfer.pause();
     
 
     });
@@ -376,23 +352,44 @@ myApp.onPageInit("clip", function(page){
    
     $('#waveform').bind('touchstart touchmove' , function(e) {
        e.preventDefault();
-       e.preventDefault();
-      var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+        wavesurfer.play();
+        wavesurfer.pause();
+        var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
       //CODE GOES HERE
-      
-      var offset = $(this).offset();
+          console.clear();
+
+      var wrapper_width = $('#waveform').width();  
+   
+      var dur = wavesurfer.getDuration();
+
+      var pageX = touch.pageX; 
+       
+      var ratio = (pageX/wrapper_width);
+      console.log(ratio); 
+
+      console.log(dur);
+
+
+
 
       var slider_width = $('.wavesurfer-region').width();
-      var pageX = touch.pageX;
-      var start = pageX;
+      
+
+   
+      
+      var start = (dur * ratio) - (slider_width/2); 
+      
       var end = start + 20;
-      console.clear();
+      
+  
+      
       console.log(pageX);
       
       console.log(start);
       wavesurfer.clearRegions();
       wavesurfer.addRegion({'start': start, 'end': end, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
-      $('.clip .button').text('play');
+      $('.clip .button').text('play').attr('id', 'play-back');
+
 
      });
 
@@ -405,7 +402,8 @@ myApp.onPageInit("clip", function(page){
           });
 
         wavesurfer.play(start, end);
-        $(this).text('I Like this clip!');
+        $(this).text('I Like this clip!').attr('id', 'proceed');
+
         
      });
 

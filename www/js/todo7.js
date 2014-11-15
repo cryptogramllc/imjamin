@@ -133,7 +133,7 @@ $('body').on('keypress', 'input[type="search"]', function(){
    console.log('search');
    var type = 'search_library';
    var keyword = $(this).val();
-   data = {type:type, keyword:keyword}
+   var data = {type:type, keyword:keyword}
    ajaxCall(data);
 });
 
@@ -141,26 +141,44 @@ $('body').on('click', '.status', function(){
     status = $(this).attr('data-user');
 });
 
+
+
 myApp.onPageAfterAnimation("home", function(){
-    type = "get_contacts";
-    data = {type:type}; 
+   var type = "get_contacts";
+   var data = {type:type}; 
     ajaxCall(data);
 });
+
+
+myApp.onPageAfterAnimation("user_status", function(){
+   var type = "get_user_status";
+   var data = {type:type}; 
+    ajaxCall(data);
+});
+
+
+
 
 
 myApp.onPageAfterAnimation("status", function(){
-    type = "get_status";
-    data = {type:type, status:status}; 
+   var type = "get_status";
+   var data = {type:type, status:status}; 
     ajaxCall(data);
 });
 
+
+
 myApp.onPageInit("clip", function(page){
-  type = "get_track";
-        data = {type:type, page: page.url};
+  var type = "get_track";
+  var data = {type:type, page: page.url};
        ajaxCall(data);
 });
 
- function ajaxCall(data){
+
+
+
+
+    function ajaxCall(data){
 
        var postData = data;
      
@@ -176,7 +194,7 @@ myApp.onPageInit("clip", function(page){
           },
           success: function(data){
               $('.col-25').hide();
-
+              console.log(data);
               eval(data.function)(data);
               // $('.media-list ul').html(data);
         
@@ -195,92 +213,106 @@ myApp.onPageInit("clip", function(page){
      
        }); 
 
-   }
-   
-   function load_contacts(data){
+    }
 
-        $('.media-list ul').empty();
-         $.each(data, function(index, value){
-             console.log(value);
-                  var status_user_id = value.status.user_id;
-                  var status_quote = value.status.status;
-                  var user_avatar = value.user.avatar;
+    function status_complete(data){
+      
+    }
 
-                  var user_name = value.user.name;
-                  var artist = value.track_info.artist;
-                  var song = value.track_info.song;
 
-                  $('.media-list ul').append("<li>"+
-                       "<a href='status.html' data-user='"+ status_user_id +"' class='item-link status item-content'>"+
-                          " <div class='item-media'>" +
-                                "<img src='"+ user_avatar +"' width='60' />" +
-                           "</div>" +
-                           "<div class='item-inner'>" +
-                            "<div class='item-title-row'>" +
-                               "<div class='item-title'>"+ user_name +"</div>" +
-                               "<div class='item-after'> </div>" +
-                            "</div>" +
-                                "<div class='item-subtitle'>Listening to <strong style='color:#ff2d55; font-size:15px;'>"+ song +"</strong> by <em>"+ artist +"</em></div>" +
-                                "<div class='item-text' style='line-height:120%; font-size:13px;'>"+ status_quote +"</div>" +
-                           "</div>" +
-                      "</a>" +
-                  "</li>");    
-         });    
-   
-          
-   } 
-  function load_search(data){
-    // console.log(data);
-      $('.media-list.results ul').empty();
-    $.each(data, function(index, value){
-        var cover = value.info.cover;
-        var song = value.info.song;
-        var artist = value.info.artist;
-        var album = value.info.Album;
-        var id = value.info.id;
-        $('.media-list.results ul').append("<li>" +
-                    "<a href='clip.html?t_id="+ id +"'  class='item-link media item-content'>"+
-                    " <div class='item-media'>" +
-                                  "<img src='"+ cover +"' width='60' />" +
+    function load_contacts(data){
+
+          $('.media-list ul').empty();
+           $.each(data, function(index, value){
+               console.log(value);
+                    var status_user_id = value.status.user_id;
+                    var status_quote = value.status.status;
+                    var user_avatar = value.user.avatar;
+
+                    var user_name = value.user.name;
+                    var artist = value.track_info.artist;
+                    var song = value.track_info.song;
+                    
+                    var iphone = "";  
+
+                    if (user_avatar.indexOf("iphone") >= 0){
+                             var iphone = "iphone";
+                    }else{
+                      iphone = "";
+                    }
+
+                    $('.media-list ul').append("<li>"+
+                         "<a href='status.html' data-user='"+ status_user_id +"' class='item-link status item-content'>"+
+                            " <div class='item-media "+ iphone +"' >" +
+                                  "<img src='"+ user_avatar +"' width='60'  />" +
                              "</div>" +
                              "<div class='item-inner'>" +
                               "<div class='item-title-row'>" +
-                                 "<div class='item-title'>"+ artist +"</div>" +
+                                 "<div class='item-title'>"+ user_name +"</div>" +
                                  "<div class='item-after'> </div>" +
                               "</div>" +
-                                  "<div class='item-subtitle'><strong style='color:#ff2d55; font-size:15px;'>"+ song +"</strong></div>" +
-                                  "<div class='item-text' style='line-height:120%; font-size:13px;'>"+ album +"</div>" +
+                                  "<div class='item-subtitle'>Listening to <strong style='color:#ff2d55; font-size:15px;'>"+ song +"</strong> by <em>"+ artist +"</em></div>" +
+                                  "<div class='item-text' style='line-height:120%; font-size:13px;'>"+ status_quote +"</div>" +
                              "</div>" +
                         "</a>" +
-                    "</li>");
+                    "</li>");    
+           });    
+
+      
+    } 
+    function load_search(data){
+    // console.log(data);
+    $('.media-list.results ul').empty();
+    $.each(data, function(index, value){
+    var cover = value.info.cover;
+    var song = value.info.song;
+    var artist = value.info.artist;
+    var album = value.info.Album;
+    var id = value.info.id;
+    $('.media-list.results ul').append("<li>" +
+                "<a href='clip.html?t_id="+ id +"'  class='item-link media item-content'>"+
+                " <div class='item-media'>" +
+                              "<img src='"+ cover +"' width='60' />" +
+                         "</div>" +
+                         "<div class='item-inner'>" +
+                          "<div class='item-title-row'>" +
+                             "<div class='item-title'>"+ artist +"</div>" +
+                             "<div class='item-after'> </div>" +
+                          "</div>" +
+                              "<div class='item-subtitle'><strong style='color:#ff2d55; font-size:15px;'>"+ song +"</strong></div>" +
+                              "<div class='item-text' style='line-height:120%; font-size:13px;'>"+ album +"</div>" +
+                         "</div>" +
+                    "</a>" +
+                "</li>");
 
 
     });
-  }
+    }
 
-  function load_status(data) {
-    
-    console.log(data);
+    function load_status(data) {
 
-    var status = data.status_info.status;
-    var track = data.track_info.file;
-    var cover = data.track_info.cover;
-    var song = data.track_info.song;
-    var artist = data.track_info.artist;
-    var album = data.track_info.Album;
-    var avatar = data.user.avatar;
-    var name = data.user.name;
-    
-    var start_time = parseInt(data.status_info.start);
-    var end_time = parseInt(data.status_info.stop);
+        console.log(data);
 
-    var duration = ((end_time - start_time) + 2) * 1000;     
+        var status = data.status_info.status;
+        var track = data.track_info.file;
+        var cover = data.track_info.cover;
+        var song = data.track_info.song;
+        var artist = data.track_info.artist;
+        var album = data.track_info.Album;
+        var avatar = data.user.avatar;
+        var name = data.user.name;
 
-    $('.status .content-block').html('<div class="upper">' +
+
+        var start_time = parseInt(data.status_info.start);
+        var end_time = parseInt(data.status_info.stop);
+
+        var duration = ((end_time - start_time) + 2) * 1000;     
+
+        $('.status .content-block').html('<div class="upper">' +
         '<div class= "avatar left"><img src="'+ avatar +'" height="60" /><span class="u_name">'+ name +'</span></div>' +
         '<div class= "status right"><blockquote>'+ status +'</blockquote></div>' +                                      
-      '</div>' +
-      '<div class="bottom">'+
+        '</div>' +
+        '<div class="bottom">'+
         '<div class="cover" style="background-image:url('+ cover +')">'+
                '<audio id="track"></audio>'+
              '<div class="pace hidden"><div class="pace-progress" style="transition: width '+ duration + 'ms linear;-webkit-transition: width '+ duration + 'ms linear;"> </div></div>'+
@@ -291,10 +323,10 @@ myApp.onPageInit("clip", function(page){
             '<div class="song">Track: "'+ song +'"</div>'+
             '<div class="artist">Artist: '+ artist +'</div>'+
          '</div>'+     
-     '</div>'); 
+        '</div>'); 
                                   
 
-      $('.play_button').on('click', function(){
+        $('.play_button').on('click', function(){
                 $('.play_button').hide();
                 $('.col-25').show();
                 $('.pace').show();
@@ -306,7 +338,7 @@ myApp.onPageInit("clip", function(page){
                 audio.play();
                 // Sometime Later
                 audio.src = 'http://54.69.118.223/media/'+ track;
-                audio.addEventListener('canplaythrough', function(){
+                audio.addEventListener('canplay', function(){
                   
                      audio.currentTime = start_time;
                      audio.play();
@@ -322,92 +354,118 @@ myApp.onPageInit("clip", function(page){
                           audio.pause();
                         }, duration);
                 }, false);
-      });
-}
+        });
+    }
 
 
- function load_track (data) {
-    $('.col-25').show();
+    function load_track (data) {
+        $('.col-25').show();
+        var start, end;
+        var track = 'http://54.69.118.223/media/' + data.track.file;
 
-    var track = 'http://54.69.118.223/media/' + data.track.file;
+        var track_id = parseInt(data.track.id);
 
-    wavesurfer.init({
+        wavesurfer.init({
         container: '#waveform',
         waveColor: '#ff2d55',
         progressColor: 'purple'
-    });
+        });
 
-    wavesurfer.on('ready', function () {
+        wavesurfer.on('ready', function () {
         $('.col-25').hide();
          wavesurfer.clearRegions();
         wavesurfer.addRegion({'start': 0, 'end': 20, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
         $('wave > wave').remove();
          wavesurfer.play();
         wavesurfer.pause();
-    
 
-    });
-     
-    wavesurfer.load(track);
-   
-    $('#waveform').bind('touchstart touchmove' , function(e) {
-       e.preventDefault();
+
+        });
+
+        wavesurfer.load(track);
+        
+
+
+
+        $('#waveform').bind('touchstart touchmove' , function(e) {
+        e.preventDefault();
         wavesurfer.play();
         wavesurfer.pause();
         var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
-      //CODE GOES HERE
-          console.clear();
-
-      var wrapper_width = $('#waveform').width();  
-   
-      var dur = wavesurfer.getDuration();
-
-      var pageX = touch.pageX; 
-       
-      var ratio = (pageX/wrapper_width);
-      console.log(ratio); 
-
-      console.log(dur);
-
-
-
-
-      var slider_width = $('.wavesurfer-region').width();
-      
-
-   
-      
-      var start = (dur * ratio) - (slider_width/2); 
-      
-      var end = start + 20;
-      
-  
-      
-      console.log(pageX);
-      
-      console.log(start);
-      wavesurfer.clearRegions();
-      wavesurfer.addRegion({'start': start, 'end': end, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
-      $('.clip .button').text('play').attr('id', 'play-back');
-
-
-     });
-
+        //CODE GOES HERE
+        console.clear();
+        var wrapper_width = $('#waveform').width();  
+        var dur = wavesurfer.getDuration();
+        var pageX = touch.pageX; 
+        var ratio = (pageX/wrapper_width);
      
-     $('.play-back').bind('click', function(){
-           var start, end; 
-          $.each(wavesurfer.regions.list, function(index, value){
-              start =  value.start;
-              end =  value.end;
-          });
 
-        wavesurfer.play(start, end);
-        $(this).text('I Like this clip!').attr('id', 'proceed');
+        var wrap_width = $('#waveform').offset().left;
+        var start = (dur * ratio) - (wrap_width); 
+        var end = start + 20;
 
+        wavesurfer.clearRegions();
+        wavesurfer.addRegion({'start': start, 'end': end, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
+            $('.proceed.text').fadeOut(function(){
+               $('#proceed').attr('id', 'play-back');
+               $('.play.text').delay(500).fadeIn();   
+            });
+          
         
-     });
+        });
 
- }
+
+        $('body').on('touchstart', '#play-back', function(){
+              var start, end; 
+              $.each(wavesurfer.regions.list, function(index, value){
+                start =  value.start;
+                end =  value.end;
+              });
+
+              wavesurfer.play(start, end);
+
+          $('.play.text').fadeOut(function(){
+                $('#play-back').attr('id', 'proceed');  
+                $('.proceed.text').delay(500).fadeIn();   
+               
+          });
+             
+
+        });
+
+         $('body').on('touchstart', '#proceed', function(){
+              var start, end; 
+              $.each(wavesurfer.regions.list, function(index, value){
+                  start =  value.start;
+                  end =  value.end;
+              });
+                status_obj = { track_id:track_id, start:start, end:end};
+                mainView.router.loadPage('http://54.69.118.223/imjamin/www/set_status.html');
+               
+          });
+      
+        $('body').on('click', '#status-done', function(){
+              var type = 'set_status';
+              var status = $('textarea.status-input').val();
+              status_obj['type'] = type;
+              status_obj['status'] = status;
+              var data = status_obj;
+              console.log(data);
+              ajaxCall(data);
+
+        });
+           
+
+    }
+     
+    function load_user_status(data){
+      console.log(data);
+      load_status(data);
+    }
+
+    function load_new_status(data){
+      mainView.router.loadPage('http://54.69.118.223/imjamin/www/new_status.html');
+    }
 
 // Update app when manifest updated 
 // http://www.html5rocks.com/en/tutorials/appcache/beginner/

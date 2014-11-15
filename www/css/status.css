@@ -1,6 +1,9 @@
 .status audio.hidden {
   display: none;
 }
+.status .upper {
+  width: 100%;
+}
 .status .upper,
 .status .bottom {
   display: inline-block;
@@ -35,6 +38,7 @@
   margin: 35px auto;
   border: 1px solid #ccc;
   position: relative;
+  background-size: 100%;
 }
 .status .bottom {
   width: 100%;

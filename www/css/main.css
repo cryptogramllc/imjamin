@@ -262,6 +262,13 @@ body.with-popup .statusbar-overlay {
 .modal-button.active-state {
   background: #f9002f;
 }
+img[src*="iphone"] {
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+}
 .register {
   position: absolute;
   bottom: 0;
@@ -605,6 +612,9 @@ body.with-popup .statusbar-overlay {
 .status audio.hidden {
   display: none;
 }
+.status .upper {
+  width: 100%;
+}
 .status .upper,
 .status .bottom {
   display: inline-block;
@@ -639,6 +649,7 @@ body.with-popup .statusbar-overlay {
   margin: 35px auto;
   border: 1px solid #ccc;
   position: relative;
+  background-size: 100%;
 }
 .status .bottom {
   width: 100%;
@@ -690,6 +701,9 @@ body.with-popup .statusbar-overlay {
 .status .hidden {
   display: none;
 }
+.set_status .hidden {
+  display: none;
+}
 .clip .button {
   -webkit-transition: width .3s ease;
   -moz-transition: width .3s ease;
@@ -697,12 +711,21 @@ body.with-popup .statusbar-overlay {
   transition: width .3s ease;
   margin: 0 auto;
   display: table;
+  padding: 0px;
+  position: relative;
 }
 .clip #play-back {
   width: 40px;
 }
 .clip #proceed {
-  width: 100px;
+  width: 165px;
+}
+.clip .text {
+  text-align: center;
+  width: 100%;
+}
+.clip .proceed.text {
+  display: none;
 }
 .pace {
   -webkit-pointer-events: none;

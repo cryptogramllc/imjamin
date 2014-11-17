@@ -219,6 +219,9 @@ myApp.onPageInit("clip", function(page){
       
     }
 
+    function success(){
+       mainView.router.loadPage('http://54.69.118.223/imjamin/www/home.html');
+    }
 
     function load_contacts(data){
 
@@ -292,9 +295,9 @@ myApp.onPageInit("clip", function(page){
     function load_status(data) {
 
         console.log(data);
-
+ $('.col-25').show();
         var status = data.status_info.status;
-        var track = data.track_info.file;
+        var track = 'http://54.69.118.223/media/' + data.track_info.file;
         var cover = data.track_info.cover;
         var song = data.track_info.song;
         var artist = data.track_info.artist;
@@ -306,7 +309,7 @@ myApp.onPageInit("clip", function(page){
         var start_time = parseInt(data.status_info.start);
         var end_time = parseInt(data.status_info.stop);
 
-        var duration = ((end_time - start_time) + 2) * 1000;     
+        var duration = (end_time - start_time) * 1000;     
 
         $('.status .content-block').html('<div class="upper">' +
         '<div class= "avatar left"><img src="'+ avatar +'" height="60" /><span class="u_name">'+ name +'</span></div>' +
@@ -316,44 +319,70 @@ myApp.onPageInit("clip", function(page){
         '<div class="cover" style="background-image:url('+ cover +')">'+
                '<audio id="track"></audio>'+
              '<div class="pace hidden"><div class="pace-progress" style="transition: width '+ duration + 'ms linear;-webkit-transition: width '+ duration + 'ms linear;"> </div></div>'+
-             '<div class="play_button icon icon-play "></div>'+
+             '<div class="play_button icon icon-play " style="display:none;"></div>'+
         '</div>'+
         '<div class="track_info">' +
             '<div class="album">Album: '+ album +'</div>'+
             '<div class="song">Track: "'+ song +'"</div>'+
             '<div class="artist">Artist: '+ artist +'</div>'+
          '</div>'+     
-        '</div>'); 
-                                  
+        '</div><div class="wave-container" style="display:none;"><div id="waveform"></div></div>'); 
 
-        $('.play_button').on('click', function(){
+          wavesurfer.init({
+              container: '#waveform',
+              waveColor: '#ff2d55',
+              progressColor: 'purple'
+          });
+                                  
+          wavesurfer.on('ready', function () {
+              $('.col-25').hide();
+              $('.play_button').show();
+               wavesurfer.clearRegions();
+               wavesurfer.addRegion({'start': start_time, 'end': end_time });
+              $('wave > wave').remove();
+               wavesurfer.play();
+               wavesurfer.pause();
+          });
+
+
+          wavesurfer.on('play', function () {
+               console.log('playing');
+          });
+
+
+           wavesurfer.load(track);
+
+           $('.play_button').on('click', function(e){
                 $('.play_button').hide();
-                $('.col-25').show();
                 $('.pace').show();
+
+                e.preventDefault();
                 // $('.pace').show();
                 // $('#track')[0].currentTime = start_time;
                 // $('#track')[0].play();
 
-                var audio = document.getElementById('track');
-                audio.play();
-                // Sometime Later
-                audio.src = 'http://54.69.118.223/media/'+ track;
-                audio.addEventListener('canplay', function(){
+                // var audio = document.getElementById('track');
+                // audio.play();
+                // // Sometime Later
+                // audio.src = 'http://54.69.118.223/media/'+ track;
+                // audio.addEventListener('canplay', function(){
                   
-                     audio.currentTime = start_time;
-                     audio.play();
-                }, false);
+                //      audio.currentTime = start_time;
+                //      audio.play();
+                // }, false);
 
-                audio.addEventListener('playing', function(){
-                    $('.col-25').hide();
-                    $('.pace-progress').addClass('go');
-                        setTimeout(function(){
-                        $('.play_button').show();
-                        $('.pace').hide();
-                        $('.pace-progress').removeClass('go');
-                          audio.pause();
-                        }, duration);
-                }, false);
+                // audio.addEventListener('playing', function(){
+                //     $('.col-25').hide();
+                //     $('.pace-progress').addClass('go');
+                //         setTimeout(function(){
+                //         $('.play_button').show();
+                //         $('.pace').hide();
+                //         $('.pace-progress').removeClass('go');
+                //           audio.pause();
+                //         }, duration);
+                // }, false);
+
+                setTimeout(function () {wavesurfer.play(start_time, end_time); $('.pace-progress').addClass('go'); }, 500);
         });
     }
 
@@ -371,16 +400,7 @@ myApp.onPageInit("clip", function(page){
         progressColor: 'purple'
         });
 
-        wavesurfer.on('ready', function () {
-        $('.col-25').hide();
-         wavesurfer.clearRegions();
-        wavesurfer.addRegion({'start': 0, 'end': 20, 'drag' : true, 'color' : "rgba(0, 0, 0, 0.3)"});
-        $('wave > wave').remove();
-         wavesurfer.play();
-        wavesurfer.pause();
-
-
-        });
+       
 
         wavesurfer.load(track);
         
@@ -459,7 +479,9 @@ myApp.onPageInit("clip", function(page){
     }
      
     function load_user_status(data){
-      console.log(data);
+      console.log(data);   
+      $('#user_status .content-block').load(function(){ $(this).append('<div class="button new-status">New Status</div>'); });
+
       load_status(data);
     }
 

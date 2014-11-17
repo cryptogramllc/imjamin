@@ -646,7 +646,7 @@ img[src*="iphone"] {
   width: 250px;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 35px auto;
+  margin: 8px auto;
   border: 1px solid #ccc;
   position: relative;
   background-size: 100%;

@@ -701,6 +701,16 @@ img[src*="iphone"] {
 .status .hidden {
   display: none;
 }
+.status .button.edit-status {
+  width: 50%;
+  display: table;
+  position: absolute;
+  bottom: 0;
+  margin: 10px 63px;
+  color: #fff;
+  border-color: #fff;
+  background: #ff2d55;
+}
 .set_status .hidden {
   display: none;
 }

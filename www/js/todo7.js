@@ -295,7 +295,7 @@ myApp.onPageInit("clip", function(page){
     function load_status(data) {
 
         console.log(data);
- $('.col-25').show();
+        $('.col-25').show();
         var status = data.status_info.status;
         var track = 'http://54.69.118.223/media/' + data.track_info.file;
         var cover = data.track_info.cover;
@@ -304,8 +304,6 @@ myApp.onPageInit("clip", function(page){
         var album = data.track_info.Album;
         var avatar = data.user.avatar;
         var name = data.user.name;
-
-
         var start_time = parseInt(data.status_info.start);
         var end_time = parseInt(data.status_info.stop);
 
@@ -325,8 +323,12 @@ myApp.onPageInit("clip", function(page){
             '<div class="album">Album: '+ album +'</div>'+
             '<div class="song">Track: "'+ song +'"</div>'+
             '<div class="artist">Artist: '+ artist +'</div>'+
-         '</div>'+     
+         '</div>'+  
         '</div><div class="wave-container" style="display:none;"><div id="waveform"></div></div>'); 
+         
+
+         $('#user_status .cover').append('<a href="http://54.69.118.223/imjamin/www/new_status.html" class="button edit-status">Edit Status</a>');
+    
 
           wavesurfer.init({
               container: '#waveform',
@@ -436,6 +438,11 @@ myApp.onPageInit("clip", function(page){
 
 
         $('body').on('touchstart', '#play-back', function(){
+             $('.play.text').fadeOut(function(){
+                $('#play-back').attr('id', 'proceed');  
+                $('.proceed.text').delay(500).fadeIn();    
+              });       
+    
               var start, end; 
               $.each(wavesurfer.regions.list, function(index, value){
                 start =  value.start;
@@ -444,11 +451,7 @@ myApp.onPageInit("clip", function(page){
 
               wavesurfer.play(start, end);
 
-          $('.play.text').fadeOut(function(){
-                $('#play-back').attr('id', 'proceed');  
-                $('.proceed.text').delay(500).fadeIn();   
-               
-          });
+           
              
 
         });
@@ -479,10 +482,8 @@ myApp.onPageInit("clip", function(page){
     }
      
     function load_user_status(data){
-      console.log(data);   
-      $('#user_status .content-block').load(function(){ $(this).append('<div class="button new-status">New Status</div>'); });
-
-      load_status(data);
+          load_status(data);
+      
     }
 
     function load_new_status(data){

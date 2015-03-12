@@ -1,0 +1,34 @@
+div.navbar
+  div.navbar-inner
+    div.left
+    div.center.sliding Profile
+    div.right
+      a.link.icon-only.open-panel
+        i.icon.icon-list
+div.pages
+  div.page.main-page(data-page="profile") 
+    div.page-content
+      div.content-block
+       .register-block
+            form(id="register", class="store-data list-block ajax-submit", action="", method="post", encrypt="multipart/form-data")
+              ul
+                li
+                  div.item-content
+                    div.item-media
+                      i.icon.icon-form-name
+                    div.item-inner
+                       div.item-title.label Name
+                       div.item-input
+                         input(type="text", placeholder="Your Name", name="name", id="name")
+                li
+                  div.item-content
+                    div.item-media
+                      i.icon.icon-form
+                    div.item-inner
+                       div.item-title.label Avatar
+                       div.item-input
+                         button.button(onclick="getImage();") Upload Photo
+              div(id="message")      
+              //- img(id="output")  
+              a.button.register Register
+

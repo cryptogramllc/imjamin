@@ -1,0 +1,43 @@
+.register {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  opacity: 0.6;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+}
+#register ul {
+  border: none;
+  background: none;
+}
+#register .button {
+  border-color: #cc0442;
+  color: #cc0442;
+}
+#register a.button.register {
+  position: relative;
+  margin-top: 30px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+}
+#register label.label-radio.item-content {
+  padding-left: 60px;
+}
+#register .visibility-hidden {
+  visibility: hidden;
+}
+#register #avatar_preview {
+  border-radius: 100%;
+  border: 1px solid #fff;
+  margin-top: 10px;
+}
+#register img.iphone-image {
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+}

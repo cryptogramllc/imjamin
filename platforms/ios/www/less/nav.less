@@ -1,0 +1,38 @@
+//#ff2d55
+
+.navbar{
+			border-bottom:1px solid #c4c4c4;
+			background: #f7f7f8;
+	&.hidden{ visibility: hidden;}
+	.navbar-inner{
+	 	    -webkit-transition: background-color 100ms linear;
+			-moz-transition: background-color 100ms linear;
+			-o-transition: background-color 100ms linear;
+			-ms-transition: background-color 100ms linear;
+			transition: background-color 100ms linear;
+	    
+	}
+	.navbar-on-center, .navbar-on-left, .navbar-from-center-to-left{
+		background-color: #f7f7f8;
+
+		.link{
+			color: #ff2d55 !important;
+		}
+		.center{
+			color:#000;
+		}
+	}
+    .icon-music3{
+    	&:before{
+    		font-size: 24px;
+			position: absolute;
+    	}
+	}
+    .icon-arrow-left{
+	   &:before{
+		font-size: 30px;
+		position: absolute;
+	
+       }
+    }
+} 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html manifest="manifest.php">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Pict-O-Jam</title>
+    <link rel="stylesheet" href="dist/css/framework7.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="http://fonts.googleapis.com/css?family=Dorsa" rel="stylesheet" type="text/css">
+    <!-- Favicon-->
+    <link href="img/icon-57.png" rel="shortcut icon"> 
+    <!-- iOS 7 iPad (retina) -->
+    <link href="img/icon-152.png" sizes="152x152" rel="apple-touch-icon">
+    <!-- iOS 6 iPad (retina) -->
+    <link href="img/icon-144.png" sizes="144x144" rel="apple-touch-icon">
+    <!-- iOS 7 iPhone (retina) -->
+    <link href="img/icon-120.png" sizes="120x120" rel="apple-touch-icon">
+    <!-- iOS 6 iPhone (retina) -->
+    <link href="img/icon-114.png" sizes="114x114" rel="apple-touch-icon">
+    <!-- iOS 7 iPad -->
+    <link href="img/icon-76.png" sizes="76x76" rel="apple-touch-icon">
+    <!-- iOS 6 iPad -->
+    <link href="img/icon-72.png" sizes="72x72" rel="apple-touch-icon">
+    <!-- iOS 6 iPhone -->
+    <link href="img/icon-57.png" sizes="57x57" rel="apple-touch-icon">
+  </head>
+  <body class="theme-pink">
+    <!-- Statusbar overlay-->
+    <div class="statusbar-overlay"></div>
+    <!-- Views-->
+    <div class="views">
+      <div class="view view-main navbar-through toolbar-through hidden-toolbar hidden-navbar">
+        <div class="navbar"></div>
+        <div class="toolbar">
+          <div class="toolbar-inner"><a href="home.html" class="link home active"> <span class="icon-home ico"></span><span class="type">Home</span></a><a href="chats.html" class="link chats"><span class="icon-bubbles ico"></span><span class="type">Chats</span></a><a href="profile.html" class="link profile"> <span class="icon-user ico"></span><span class="type">Profile</span></a><a class="link exit"> <span class="icon-exit ico"></span><span class="type">Exit</span></a></div>
+        </div>
+        <div class="pages">
+          <div data-page="index" class="page no-toolbar no-navbar">
+            <div class="page-content">
+              <div class="main-title">IM JAMIN</div>
+              <h2 style="color:#fff;font-family: 'Dorsa', sans-serif;font-size: 40px;letter-spacing: 4px;text-align: center;opacity: 0.5;">Please Wait</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-25"><span style="width:42px; height:42px" class="preloader preloader"></span></div>
+    <!-- Template-->
+    <script id="todo-item-template" type="text/template">
+      <ul>{{#each this}}
+        <li data-color="{{color}}" data-id="{{id}}" class="swipeout">
+          <div class="swipeout-content">
+            <label class="label-checkbox item-content"><input type="checkbox" {{checked}}>
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner">
+                <div class="item-title">{{title}}</div>
+              </div>
+            </label>
+          </div>
+          <div class="swipeout-actions-right"><a href="#" class="swipeout-delete">Delete</a></div>
+        </li>{{/each}}
+      </ul>
+    </script>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="dist/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/wave.js"></script>
+    <script type="text/javascript" src="js/wave-region.js"></script>
+    <script type="text/javascript" src="js/hammer.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js">    </script>
+    <script type="text/javascript" src="js/todo7.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>

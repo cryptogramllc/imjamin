@@ -1,0 +1,10 @@
+.col-25 {
+  position: absolute;
+  top: 0;
+  z-index: 5000;
+  top: 50%;
+  left: 50%;
+  margin-left: -21px;
+  margin-top: -21px;
+  display: none;
+}

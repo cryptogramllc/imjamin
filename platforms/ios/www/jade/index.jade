@@ -1,0 +1,96 @@
+doctype
+html(manifest="manifest.php")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui")
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
+    title Pict-O-Jam
+    link(rel="stylesheet", href="dist/css/framework7.css")
+    link(rel="stylesheet", href="css/main.css")
+    link(href='http://fonts.googleapis.com/css?family=Dorsa', rel='stylesheet', type='text/css')
+
+
+    // Favicon
+    link(href="img/icon-57.png", rel="shortcut icon")
+    | 
+    <!-- iOS 7 iPad (retina) -->
+    <link href="img/icon-152.png" sizes="152x152" rel="apple-touch-icon">
+    <!-- iOS 6 iPad (retina) -->
+    <link href="img/icon-144.png" sizes="144x144" rel="apple-touch-icon">
+    <!-- iOS 7 iPhone (retina) -->
+    <link href="img/icon-120.png" sizes="120x120" rel="apple-touch-icon">
+    <!-- iOS 6 iPhone (retina) -->
+    <link href="img/icon-114.png" sizes="114x114" rel="apple-touch-icon">
+    <!-- iOS 7 iPad -->
+    <link href="img/icon-76.png" sizes="76x76" rel="apple-touch-icon">
+    <!-- iOS 6 iPad -->
+    <link href="img/icon-72.png" sizes="72x72" rel="apple-touch-icon">
+    <!-- iOS 6 iPhone -->
+    <link href="img/icon-57.png" sizes="57x57" rel="apple-touch-icon">
+  body.theme-pink
+    // Statusbar overlay
+    .statusbar-overlay
+    // Views
+    .views
+      .view.view-main.navbar-through.toolbar-through.hidden-toolbar.hidden-navbar
+        .navbar
+        .toolbar
+          .toolbar-inner
+            a.link.home.active(href="home.html")  
+              span.icon-home.ico
+              span.type Home
+            a.link.chats(href="chats.html")
+              span.icon-bubbles.ico
+              span.type Chats
+            a.link.profile(href="profile.html") 
+              span.icon-user.ico
+              span.type Profile
+            a.link.exit 
+              span.icon-exit.ico
+              span.type Exit
+        .pages
+          .page.no-toolbar.no-navbar(data-page="index")
+            .page-content
+              .main-title IM JAMIN
+              h2(style="color:#fff;font-family: 'Dorsa', sans-serif;font-size: 40px;letter-spacing: 4px;text-align: center;opacity: 0.5;") Please Wait
+            
+    .col-25
+      span(style="width:42px; height:42px", class="preloader preloader")
+      
+          
+    // Template
+    script(id="todo-item-template", type="text/template")
+      ul
+        {{#each this}}
+        li.swipeout(data-color="{{color}}", data-id="{{id}}")
+          .swipeout-content
+            label.label-checkbox.item-content
+              | <input type="checkbox" {{checked}}>
+              .item-media
+                i.icon.icon-form-checkbox
+              .item-inner
+                .item-title {{title}}
+          .swipeout-actions-right
+            a(href="#").swipeout-delete Delete
+        {{/each}}
+
+    // Path to Framework7 Library JS
+    script(type="text/javascript", src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+
+      
+    script(type="text/javascript", src="dist/js/framework7.min.js")
+    script(type="text/javascript", src="js/wave.js")
+    script(type="text/javascript", src="js/wave-region.js")
+
+      
+    script(type="text/javascript", src="js/hammer.js")
+    // Path to your app js
+
+    script(type="text/javascript", src="cordova.js")
+    script(type="text/javascript", src="js/index.js")     
+
+    script(type="text/javascript", src="js/todo7.js")
+    script(type="text/javascript", src="js/ajax.js")
+    script(type="text/javascript", src="js/app.js")
+

@@ -1,0 +1,23 @@
+.clip .button {
+  -webkit-transition: width .3s ease;
+  -moz-transition: width .3s ease;
+  -o-transition: width .3s ease;
+  transition: width .3s ease;
+  margin: 0 auto;
+  display: table;
+  padding: 0px;
+  position: relative;
+}
+.clip #play-back {
+  width: 40px;
+}
+.clip #proceed {
+  width: 165px;
+}
+.clip .text {
+  text-align: center;
+  width: 100%;
+}
+.clip .proceed.text {
+  display: none;
+}

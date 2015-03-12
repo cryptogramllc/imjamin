@@ -1,0 +1,36 @@
+div.navbar
+  div.navbar-inner
+    div.left
+      //- a.back.link(href="index.html")
+        i.icon.icon-back-blue
+         span Back
+    div.center.sliding Reigster
+    div.right
+      a.link.icon-only.open-panel
+        i.icon.icon-list
+div.pages
+  div.page.main-page.no-toolbar.no-navbar(data-page="register") 
+    div.page-content
+      div.content-block
+       .register-block
+            form(id="register", class="store-data list-block ajax-submit", action="", method="post", encrypt="multipart/form-data")
+              ul
+                li
+                  div.item-content
+                    div.item-media
+                      i.icon.icon-form-name
+                    div.item-inner
+                       div.item-title.label Name
+                       div.item-input
+                         input(type="text", placeholder="Your Name", name="name", id="name")  
+                li
+                  div.item-content
+                    div.item-media
+                      i.icon.icon-form
+                    div.item-inner
+                       div.item-title.label Avatar
+                       div.item-input
+                         button.button(onclick="getImage();") Upload Photo
+              div(id="message")      
+              //- img(id="output")  
+              a.button.register Register

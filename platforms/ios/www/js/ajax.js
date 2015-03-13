@@ -81,16 +81,16 @@ $(document).ready(function(){
             $('.col-25').hide();
             
             if(data == 'fail'){
-                mainView.router.loadPage('http://54.69.118.223/imjamin/www/login.html'); 
+               mainView.router.loadPage('login.html'); 
             }
             else if(data == 'session_set'){
                 status_check();
             }
             else if(data == 'complete'){
-                mainView.router.loadPage('http://54.69.118.223/imjamin/www/home.html');
+                mainView.router.loadPage('home.html');
             }
             else{
-                mainView.router.loadPage('http://54.69.118.223/imjamin/www/register.html');
+                mainView.router.loadPage('register.html');
             }
        	  }
 

@@ -9,7 +9,7 @@ html(manifest="manifest.php")
     link(rel="stylesheet", href="dist/css/framework7.css")
     link(rel="stylesheet", href="css/main.css")
     link(href='http://fonts.googleapis.com/css?family=Dorsa', rel='stylesheet', type='text/css')
-
+    link(href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css')
 
     // Favicon
     link(href="img/icon-57.png", rel="shortcut icon")
@@ -28,7 +28,7 @@ html(manifest="manifest.php")
     <link href="img/icon-72.png" sizes="72x72" rel="apple-touch-icon">
     <!-- iOS 6 iPhone -->
     <link href="img/icon-57.png" sizes="57x57" rel="apple-touch-icon">
-  body.theme-pink
+  body
     // Statusbar overlay
     .statusbar-overlay
     // Views
@@ -46,18 +46,12 @@ html(manifest="manifest.php")
             a.link.profile(href="profile.html") 
               span.icon-user.ico
               span.type Profile
-            a.link.exit 
-              span.icon-exit.ico
-              span.type Exit
         .pages
           .page.no-toolbar.no-navbar(data-page="index")
             .page-content
-              .main-title IM JAMIN
-              h2(style="color:#fff;font-family: 'Dorsa', sans-serif;font-size: 40px;letter-spacing: 4px;text-align: center;opacity: 0.5;") Please Wait
-            
-    .col-25
-      span(style="width:42px; height:42px", class="preloader preloader")
-      
+              .icon-img
+              .gradient-center
+    
           
     // Template
     script(id="todo-item-template", type="text/template")
@@ -89,7 +83,6 @@ html(manifest="manifest.php")
 
     script(type="text/javascript", src="cordova.js")
     script(type="text/javascript", src="js/index.js")     
-
     script(type="text/javascript", src="js/todo7.js")
     script(type="text/javascript", src="js/ajax.js")
     script(type="text/javascript", src="js/app.js")

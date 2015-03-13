@@ -56,7 +56,12 @@
     return self;
 }
 
+
+
+
 #pragma mark UIApplicationDelegate implementation
+
+
 
 /**
  * This is main kick off after the app inits, the views and Settings are setup here. (preferred - iOS4 and up)
@@ -87,6 +92,22 @@
 
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    self.viewController.webView.scrollView.bounces = NO;
+
+    
+    
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
+    {
+        CGSize screenSize = screenBounds.size;
+        CGFloat screenWidth = screenSize.width;
+        UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 20)];
+        view.backgroundColor=[UIColor colorWithRed:49.0/255.0 green:13.0/255.0 blue:85.0/255.0 alpha:1];
+        [self.window.rootViewController.view addSubview:view];
+    }
+
+    
 
     return YES;
 }

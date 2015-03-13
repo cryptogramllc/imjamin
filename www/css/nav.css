@@ -1,6 +1,6 @@
 .navbar {
   border-bottom: 1px solid #c4c4c4;
-  background: #f7f7f8;
+  background: #310D55;
 }
 .navbar.hidden {
   visibility: hidden;
@@ -15,17 +15,17 @@
 .navbar .navbar-on-center,
 .navbar .navbar-on-left,
 .navbar .navbar-from-center-to-left {
-  background-color: #f7f7f8;
+  background-color: #310D55;
 }
 .navbar .navbar-on-center .link,
 .navbar .navbar-on-left .link,
 .navbar .navbar-from-center-to-left .link {
-  color: #ff2d55 !important;
+  color: #fff !important;
 }
 .navbar .navbar-on-center .center,
 .navbar .navbar-on-left .center,
 .navbar .navbar-from-center-to-left .center {
-  color: #000;
+  color: #fff;
 }
 .navbar .icon-music3:before {
   font-size: 24px;

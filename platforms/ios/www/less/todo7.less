@@ -1,4 +1,13 @@
 //Mixins
+@pink: #ff2d55;
+@green: #2df523;
+@blue: #089efe;
+@yellow: #eaff00;
+@orange: #ff8400;
+@purple: #310D55;
+@cyan: #00fff6;
+@white: #ffffff;
+
 .transition(@t) {
     -webkit-transition-duration: @t;
     -moz-transition-duration: @t;
@@ -13,13 +22,7 @@
     -o-transform: @t;
     transform: @t;
 }
-@pink: #ff2d55;
-@green: #2df523;
-@blue: #089efe;
-@yellow: #eaff00;
-@orange: #ff8400;
-@purple: #ff00f0;
-@cyan: #00fff6;
+
 .button{
     border: 1px solid @pink;
     color: @pink;
@@ -40,11 +43,41 @@ body {
     background: #000;
 }
 .view-main {
-    background: url(../img/bg.jpg) no-repeat center;
+    background: #310D55;
     -webkit-background-size: cover;
     background-size: cover;
     .transform(translate3d(0,0,0) scale(1));
     .transition(400ms);
+    .gradient-center {
+        height: 500px;
+        width: 500px;
+        position: absolute;
+        left: 50%;
+        margin-left: -250px;
+        top: 50%;
+        margin-top: -250px;
+        background: -moz-radial-gradient(center, ellipse cover,  rgba(115,53,139,1) 0%, rgba(255,255,255,0) 50%); /* FF3.6+ */
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(115,53,139,1)), color-stop(50%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+        background: -webkit-radial-gradient(center, ellipse cover,  rgba(115,53,139,1) 0%,rgba(255,255,255,0) 50%); /* Chrome10+,Safari5.1+ */
+        background: -o-radial-gradient(center, ellipse cover,  rgba(115,53,139,1) 0%,rgba(255,255,255,0) 50%); /* Opera 12+ */
+        background: -ms-radial-gradient(center, ellipse cover,  rgba(115,53,139,1) 0%,rgba(255,255,255,0) 50%); /* IE10+ */
+        background: radial-gradient(ellipse at center,  rgba(115,53,139,1) 0%,rgba(255,255,255,0) 50%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#73358b', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        opacity:0.2;
+    }
+    .icon-img {
+        background: url('../img/imjammin-bg.png') center no-repeat;
+        height: 250px;
+        width: 250px;
+        background-size: 55%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 999;
+        opacity: 1;
+        margin-left: -120px;
+        margin-top: -125px;
+    }
 }
 .pages, .page {
     background: none;
@@ -52,7 +85,8 @@ body {
 
 .main-page{
      .page-content {
-        background: #efeff4;
+        background: @white;
+        
     }
 
 }
@@ -64,6 +98,7 @@ html.ios {
     }
     .page-content {
         margin-bottom: 1px;
+          
     }
 }
 .view-main {
@@ -110,7 +145,7 @@ i.icon-plus {
         border-left-color: @green;
     }
     li[data-color="white"] .item-content{
-        border-left-color: #fff;
+        border-left-color: @white;
     }
     li[data-color="yellow"] .item-content{
         border-left-color: @yellow;
@@ -131,29 +166,29 @@ i.icon-plus {
     @darkPink: darken(@pink,30%);
     background: rgba(red(@darkPink),green(@darkPink),blue(@darkPink),0.7);
     .navbar {
-        color:#fff;
+        color:@white;
         background: darken(@pink, 20%);
         border: none;
     }
     a.link {
-        color:#fff;
+        color:@white;
     }
     .list-block {
         ul {
             background: none;
             border: none;
-            color:#fff;
+            color:@white;
         }
         input {
-            color:#fff;
+            color:@white;
         }
     }
     .item-inner {
         border-color: rgba(255,255,255,0.2);
     }
     .button {
-        border-color: #fff;
-        color:#fff;
+        border-color: @white;
+        color:@white;
     }
     .button.active-state {
         background: rgba(255,255,255,0.1);
@@ -192,7 +227,7 @@ i.icon-plus {
         background: @yellow;
     }
     &[data-color="white"] {
-        background: #fff;
+        background: @white;
     }
     &[data-color="purple"] {
         background: @purple;
@@ -229,13 +264,13 @@ body.with-popup {
 
 .modal-inner {
     background: @pink;
-    color:#fff;
+    color:@white;
     border-bottom: 1px solid darken(@pink, 10%);
 }
 .modal-button {
     background: @pink;
     border-right-color: darken(@pink, 10%);
-    color:#fff;
+    color:@white;
     &.active-state {
         background: darken(@pink, 10%);
     }

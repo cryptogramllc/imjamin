@@ -1,22 +1,26 @@
 .toolbar {
+  border-top: 1px solid #ededed;
   height: 50px;
 }
-.toolbar .link {
+.toolbar .toolbar-inner {
+  border-top: 1px solid #ddd;
+}
+.toolbar .toolbar-inner .link {
   font-size: 11px;
   color: #999;
   overflow: visible;
 }
-.toolbar .ico {
+.toolbar .toolbar-inner .ico {
   font-size: 25px;
   position: absolute;
   left: 50%;
   margin-left: -12px;
   margin-top: 4px;
 }
-.toolbar span.type {
+.toolbar .toolbar-inner span.type {
   margin-top: 30px;
   margin-left: 0px !important;
 }
-.toolbar a.link.active {
-  color: #ff2d55;
+.toolbar .toolbar-inner a.link.active {
+  color: #310D55;
 }

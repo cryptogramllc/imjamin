@@ -220,7 +220,8 @@ myApp.onPageInit("clip", function(page){
     }
 
     function success(){
-       mainView.router.loadPage('http://54.69.118.223/imjamin/www/home.html');
+        console.log('success');
+       mainView.router.loadPage('home.html');
     }
 
     function load_contacts(data){
@@ -254,7 +255,7 @@ myApp.onPageInit("clip", function(page){
                                  "<div class='item-title'>"+ user_name +"</div>" +
                                  "<div class='item-after'> </div>" +
                               "</div>" +
-                                  "<div class='item-subtitle'>Listening to <strong style='color:#ff2d55; font-size:15px;'>"+ song +"</strong> by <em>"+ artist +"</em></div>" +
+                                  "<div class='item-subtitle'>Listening to <strong style='color:#73358B; font-size:15px;'>"+ song +"</strong> by <em>"+ artist +"</em></div>" +
                                   "<div class='item-text' style='line-height:120%; font-size:13px;'>"+ status_quote +"</div>" +
                              "</div>" +
                         "</a>" +
@@ -282,7 +283,7 @@ myApp.onPageInit("clip", function(page){
                              "<div class='item-title'>"+ artist +"</div>" +
                              "<div class='item-after'> </div>" +
                           "</div>" +
-                              "<div class='item-subtitle'><strong style='color:#ff2d55; font-size:15px;'>"+ song +"</strong></div>" +
+                              "<div class='item-subtitle'><strong style='color:#73358B; font-size:15px;'>"+ song +"</strong></div>" +
                               "<div class='item-text' style='line-height:120%; font-size:13px;'>"+ album +"</div>" +
                          "</div>" +
                     "</a>" +
@@ -327,12 +328,12 @@ myApp.onPageInit("clip", function(page){
         '</div><div class="wave-container" style="display:none;"><div id="waveform"></div></div>'); 
          
 
-         $('#user_status .cover').append('<a href="http://54.69.118.223/imjamin/www/new_status.html" class="button edit-status">Edit Status</a>');
+         $('#user_status .cover').append('<a href="new_status.html" class="button edit-status">Edit Status</a>');
     
 
           wavesurfer.init({
               container: '#waveform',
-              waveColor: '#ff2d55',
+              waveColor: '#310D55',
               progressColor: 'purple'
           });
                                   
@@ -398,7 +399,7 @@ myApp.onPageInit("clip", function(page){
 
         wavesurfer.init({
         container: '#waveform',
-        waveColor: '#ff2d55',
+        waveColor: '#310D55',
         progressColor: 'purple'
         });
 
@@ -463,7 +464,7 @@ myApp.onPageInit("clip", function(page){
                   end =  value.end;
               });
                 status_obj = { track_id:track_id, start:start, end:end};
-                mainView.router.loadPage('http://54.69.118.223/imjamin/www/set_status.html');
+                mainView.router.loadPage('set_status.html');
                
           });
       
@@ -487,7 +488,7 @@ myApp.onPageInit("clip", function(page){
     }
 
     function load_new_status(data){
-      mainView.router.loadPage('http://54.69.118.223/imjamin/www/new_status.html');
+      mainView.router.loadPage('new_status.html');
     }
 
 // Update app when manifest updated 

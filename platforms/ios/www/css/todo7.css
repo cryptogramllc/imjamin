@@ -18,7 +18,7 @@ body {
   background: #000;
 }
 .view-main {
-  background: url(../img/bg.jpg) no-repeat center;
+  background: #310D55;
   -webkit-background-size: cover;
   background-size: cover;
   -webkit-transform: translate3d(0, 0, 0) scale(1);
@@ -32,12 +32,49 @@ body {
   -o-transition-duration: 400ms;
   transition-duration: 400ms;
 }
+.view-main .gradient-center {
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
+  top: 50%;
+  margin-top: -250px;
+  background: -moz-radial-gradient(center, ellipse cover, #73358b 0%, rgba(255, 255, 255, 0) 50%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #73358b), color-stop(50%, rgba(255, 255, 255, 0)));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #73358b 0%, rgba(255, 255, 255, 0) 50%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #73358b 0%, rgba(255, 255, 255, 0) 50%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #73358b 0%, rgba(255, 255, 255, 0) 50%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at center, #73358b 0%, rgba(255, 255, 255, 0) 50%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#73358b', endColorstr='#00ffffff', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  opacity: 0.2;
+}
+.view-main .icon-img {
+  background: url('../img/imjammin-bg.png') center no-repeat;
+  height: 250px;
+  width: 250px;
+  background-size: 55%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  opacity: 1;
+  margin-left: -120px;
+  margin-top: -125px;
+}
 .pages,
 .page {
   background: none;
 }
 .main-page .page-content {
-  background: #efeff4;
+  background: #ffffff;
 }
 html.ios .page {
   overflow: auto;
@@ -85,7 +122,7 @@ i.icon-plus {
   border-left-color: #2df523;
 }
 .todo-items-list li[data-color="white"] .item-content {
-  border-left-color: #fff;
+  border-left-color: #ffffff;
 }
 .todo-items-list li[data-color="yellow"] .item-content {
   border-left-color: #eaff00;
@@ -94,7 +131,7 @@ i.icon-plus {
   border-left-color: #ff2d55;
 }
 .todo-items-list li[data-color="purple"] .item-content {
-  border-left-color: #ff00f0;
+  border-left-color: #310d55;
 }
 .todo-items-list li[data-color="cyan"] .item-content {
   border-left-color: #00fff6;
@@ -103,27 +140,27 @@ i.icon-plus {
   background: rgba(147, 0, 28, 0.7);
 }
 .popup .navbar {
-  color: #fff;
+  color: #ffffff;
   background: #c60026;
   border: none;
 }
 .popup a.link {
-  color: #fff;
+  color: #ffffff;
 }
 .popup .list-block ul {
   background: none;
   border: none;
-  color: #fff;
+  color: #ffffff;
 }
 .popup .list-block input {
-  color: #fff;
+  color: #ffffff;
 }
 .popup .item-inner {
   border-color: rgba(255, 255, 255, 0.2);
 }
 .popup .button {
-  border-color: #fff;
-  color: #fff;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 .popup .button.active-state {
   background: rgba(255, 255, 255, 0.1);
@@ -166,10 +203,10 @@ i.icon-plus {
   background: #eaff00;
 }
 .popup span.color[data-color="white"] {
-  background: #fff;
+  background: #ffffff;
 }
 .popup span.color[data-color="purple"] {
-  background: #ff00f0;
+  background: #310d55;
 }
 .popup span.color[data-color="cyan"] {
   background: #00fff6;
@@ -206,13 +243,13 @@ body.with-popup .statusbar-overlay {
 }
 .modal-inner {
   background: #ff2d55;
-  color: #fff;
+  color: #ffffff;
   border-bottom: 1px solid #f9002f;
 }
 .modal-button {
   background: #ff2d55;
   border-right-color: #f9002f;
-  color: #fff;
+  color: #ffffff;
 }
 .modal-button.active-state {
   background: #f9002f;

@@ -22,31 +22,31 @@
                     "CoreGraphics.framework": [
                         {
                             "xml": "false",
-                            "count": 3
+                            "count": 5
                         }
                     ],
                     "AssetsLibrary.framework": [
                         {
                             "xml": "false",
-                            "count": 2
+                            "count": 3
                         }
                     ],
                     "MobileCoreServices.framework": [
                         {
                             "xml": "false",
-                            "count": 2
+                            "count": 3
                         }
                     ],
                     "AddressBook.framework": [
                         {
                             "xml": "true",
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "AddressBookUI.framework": [
                         {
                             "xml": "true",
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }
@@ -89,6 +89,22 @@
                         {
                             "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Capture\"><param name=\"ios-package\" value=\"CDVCapture\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ContactsPhoneNumbers\"><param name=\"ios-package\" value=\"CDVContactsPhoneNumbers\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -119,6 +135,18 @@
             "PACKAGE_NAME": "com.imjammin.imjammin"
         },
         "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.imjammin.imjammin"
+        },
+        "org.apache.cordova.media-capture": {
+            "PACKAGE_NAME": "com.imjammin.imjammin"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.imjammin.imjammin"
+        },
+        "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "com.imjammin.imjammin"
+        },
+        "com.dbaq.cordova.contactsPhoneNumbers": {
             "PACKAGE_NAME": "com.imjammin.imjammin"
         }
     },

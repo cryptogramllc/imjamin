@@ -16,9 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 var app = {
     // Application Constructor
     initialize: function() {
+        console.log('bindEvents');
         this.bindEvents();
         
     },
@@ -35,6 +37,10 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        console.log('deviceready');
+        console.log(navigator.contacts);
+
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

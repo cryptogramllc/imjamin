@@ -190,11 +190,11 @@ myApp.onPageInit("clip", function(page){
           dataType: 'JSON',
           cache: false,
           beforeSend:function(){
-                $('.col-25').show();
+             $('.spinner').show();
           },
           success: function(data){
-              $('.col-25').hide();
-              console.log(data);
+              $('.spinner').hide();
+             // console.log(data);
               eval(data.function)(data);
               // $('.media-list ul').html(data);
         
@@ -216,19 +216,63 @@ myApp.onPageInit("clip", function(page){
     }
 
     function status_complete(data){
-      
+       mainView.router.loadPage('user_status.html');
     }
 
     function success(){
         console.log('success');
-       mainView.router.loadPage('home.html');
+        mainView.router.loadPage('home.html');
     }
+    
+   
+
 
     function load_contacts(data){
+           // Wait for Cordova to load
+    //
+
+    // Cordova is ready
+    //
+        // find all contacts with 'Bob' in any name field
+        var options = new ContactFindOptions();
+        navigator.contacts.find(
+        ["*"], 
+        onSuccess, 
+        onError);
+
+    // onSuccess: Get a snapshot of the current contacts
+    //
+    function onSuccess(contacts) {
+        for (var i=0; i<contacts.length; i++) {
+           
+          if (contacts[i].phoneNumbers != null) {
+              $.each(contacts[i].phoneNumbers, function(i ,v){
+                    $.each(v, function(e, f){
+                           
+
+                          if (e == 'value') {
+                              var number = f.replace(/-|\s/g,""); 
+                              console.log(number);
+
+                          }
+                    });
+              });
+                   
+                 
+          }
+
+        }
+    }
+
+    // onError: Failed to get the contacts
+    //
+    function onError(contactError) {
+        alert('onError!');
+    }
 
           $('.media-list ul').empty();
            $.each(data, function(index, value){
-               console.log(value);
+             //  console.log(value);
                     var status_user_id = value.status.user_id;
                     var status_quote = value.status.status;
                     var user_avatar = value.user.avatar;
@@ -296,7 +340,7 @@ myApp.onPageInit("clip", function(page){
     function load_status(data) {
 
         console.log(data);
-        $('.col-25').show();
+        $('.spinner').show();
         var status = data.status_info.status;
         var track = 'http://54.69.118.223/media/' + data.track_info.file;
         var cover = data.track_info.cover;
@@ -328,7 +372,7 @@ myApp.onPageInit("clip", function(page){
         '</div><div class="wave-container" style="display:none;"><div id="waveform"></div></div>'); 
          
 
-         $('#user_status .cover').append('<a href="new_status.html" class="button edit-status">Edit Status</a>');
+         $('#user_status .cover').append('<a href="edit_status.html" class="button edit-status">Edit Status</a>');
     
 
           wavesurfer.init({
@@ -338,7 +382,7 @@ myApp.onPageInit("clip", function(page){
           });
                                   
           wavesurfer.on('ready', function () {
-              $('.col-25').hide();
+              $('.spinner').hide();
               $('.play_button').show();
                wavesurfer.clearRegions();
                wavesurfer.addRegion({'start': start_time, 'end': end_time });
@@ -375,7 +419,7 @@ myApp.onPageInit("clip", function(page){
                 // }, false);
 
                 // audio.addEventListener('playing', function(){
-                //     $('.col-25').hide();
+                //     $('.spinner').hide();
                 //     $('.pace-progress').addClass('go');
                 //         setTimeout(function(){
                 //         $('.play_button').show();
@@ -391,7 +435,7 @@ myApp.onPageInit("clip", function(page){
 
 
     function load_track (data) {
-        $('.col-25').show();
+        $('.spinner').show();
         var start, end;
         var track = 'http://54.69.118.223/media/' + data.track.file;
 
@@ -451,10 +495,6 @@ myApp.onPageInit("clip", function(page){
               });
 
               wavesurfer.play(start, end);
-
-           
-             
-
         });
 
          $('body').on('touchstart', '#proceed', function(){

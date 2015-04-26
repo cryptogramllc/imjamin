@@ -1,6 +1,5 @@
 
-    app.initialize();
-
+   
     function getImage() {
         // Retrieve image file location from specified source
         navigator.camera.getPicture(uploadPhoto, function(message) {
@@ -46,8 +45,7 @@
         alert("An error has occurred: Code = " + error.code);
     }
 
-    
-   
+      
 
 
     

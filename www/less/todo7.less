@@ -24,8 +24,8 @@
 }
 
 .button{
-    border: 1px solid @pink;
-    color: @pink;
+    border: 1px solid @purple;
+    color: @purple;
 }
 textarea.status-input{
      margin: 10px auto;
@@ -34,7 +34,7 @@ textarea.status-input{
     display: block;
     background: #f7f7f8;
     text-align: left;
-    border-color: @pink;
+    border-color: @purple;
     height: 50px;
     border-radius:5px;
     padding:10px;
@@ -151,7 +151,7 @@ i.icon-plus {
         border-left-color: @yellow;
     }
     li[data-color="pink"] .item-content{
-        border-left-color: @pink;
+        border-left-color: @purple;
     }
     li[data-color="purple"] .item-content{
         border-left-color: @purple;
@@ -163,11 +163,11 @@ i.icon-plus {
 }
 
 .popup {
-    @darkPink: darken(@pink,30%);
+    @darkPink: darken(@purple,30%);
     background: rgba(red(@darkPink),green(@darkPink),blue(@darkPink),0.7);
     .navbar {
         color:@white;
-        background: darken(@pink, 20%);
+        background: darken(@purple, 20%);
         border: none;
     }
     a.link {
@@ -215,7 +215,7 @@ i.icon-plus {
         background: @orange;
     }
     &[data-color="pink"] {
-        background: @pink;
+        background: @purple;
     }
     &[data-color="blue"] {
         background: @blue;
@@ -250,7 +250,7 @@ body.with-popup {
         -webkit-filter: blur(5px);
     }
     .statusbar-overlay {
-        background: darken(@pink, 20%);
+        background: darken(@purple, 20%);
     }
     @media all and (max-width:629px) and (max-height:629px) {
         .statusbar-overlay {
@@ -259,19 +259,19 @@ body.with-popup {
     }
 }
 .statusbar-overlay {
-    // background: @pink;
+    // background: @purple;
 }
 
 .modal-inner {
-    background: @pink;
+    background: @purple;
     color:@white;
-    border-bottom: 1px solid darken(@pink, 10%);
+    border-bottom: 1px solid darken(@purple, 10%);
 }
 .modal-button {
-    background: @pink;
-    border-right-color: darken(@pink, 10%);
+    background: @purple;
+    border-right-color: darken(@purple, 10%);
     color:@white;
     &.active-state {
-        background: darken(@pink, 10%);
+        background: darken(@purple, 10%);
     }
 }

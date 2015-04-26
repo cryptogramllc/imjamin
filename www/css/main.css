@@ -121,8 +121,8 @@
   position: absolute;
 }
 .button {
-  border: 1px solid #ff2d55;
-  color: #ff2d55;
+  border: 1px solid #310d55;
+  color: #310d55;
 }
 textarea.status-input {
   margin: 10px auto;
@@ -131,7 +131,7 @@ textarea.status-input {
   display: block;
   background: #f7f7f8;
   text-align: left;
-  border-color: #ff2d55;
+  border-color: #310d55;
   height: 50px;
   border-radius: 5px;
   padding: 10px;
@@ -250,7 +250,7 @@ i.icon-plus {
   border-left-color: #eaff00;
 }
 .todo-items-list li[data-color="pink"] .item-content {
-  border-left-color: #ff2d55;
+  border-left-color: #310d55;
 }
 .todo-items-list li[data-color="purple"] .item-content {
   border-left-color: #310d55;
@@ -259,11 +259,11 @@ i.icon-plus {
   border-left-color: #00fff6;
 }
 .popup {
-  background: rgba(147, 0, 28, 0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
 .popup .navbar {
   color: #ffffff;
-  background: #c60026;
+  background: #000000;
   border: none;
 }
 .popup a.link {
@@ -313,7 +313,7 @@ i.icon-plus {
   background: #ff8400;
 }
 .popup span.color[data-color="pink"] {
-  background: #ff2d55;
+  background: #310d55;
 }
 .popup span.color[data-color="blue"] {
   background: #089efe;
@@ -356,7 +356,7 @@ body.with-popup .view-main {
   -webkit-filter: blur(5px);
 }
 body.with-popup .statusbar-overlay {
-  background: #c60026;
+  background: #000000;
 }
 @media all and (max-width: 629px) and (max-height: 629px) {
   body.with-popup .statusbar-overlay {
@@ -364,17 +364,17 @@ body.with-popup .statusbar-overlay {
   }
 }
 .modal-inner {
-  background: #ff2d55;
+  background: #310d55;
   color: #ffffff;
-  border-bottom: 1px solid #f9002f;
+  border-bottom: 1px solid #170629;
 }
 .modal-button {
-  background: #ff2d55;
-  border-right-color: #f9002f;
+  background: #310d55;
+  border-right-color: #170629;
   color: #ffffff;
 }
 .modal-button.active-state {
-  background: #f9002f;
+  background: #170629;
 }
 img[src*="iphone"] {
   -ms-transform: rotate(90deg);
@@ -397,8 +397,8 @@ img[src*="iphone"] {
   background: none;
 }
 #register .button {
-  border-color: #cc0442;
-  color: #cc0442;
+  border-color: #310D55;
+  color: #310D55;
 }
 #register a.button.register {
   position: relative;
@@ -775,7 +775,7 @@ img[src*="iphone"] {
 .status .play_button {
   font-size: 150px;
   opacity: 0.7;
-  color: #ff2d55;
+  color: #73358B;
   margin: auto;
   vertical-align: middle;
   position: absolute;
@@ -827,7 +827,7 @@ img[src*="iphone"] {
   margin: 10px 63px;
   color: #fff;
   border-color: #fff;
-  background: #ff2d55;
+  background: #73358B;
 }
 .set_status .hidden {
   display: none;
@@ -871,7 +871,7 @@ img[src*="iphone"] {
   height: 10px;
   width: 200px;
   background: #fff;
-  border: 1px solid #ff2d55;
+  border: 1px solid #310D55;
 }
 .pace .pace-progress {
   -webkit-box-sizing: border-box;
@@ -891,7 +891,7 @@ img[src*="iphone"] {
   left: 0px;
   top: 0px;
   height: 100%;
-  background: #ff2d55;
+  background: #73358B;
   width: 0%;
 }
 .pace .pace-progress.go {

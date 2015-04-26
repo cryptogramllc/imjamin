@@ -14,7 +14,7 @@
   height: 10px;
   width: 200px;
   background: #fff;
-  border: 1px solid #ff2d55;
+  border: 1px solid #310D55;
 }
 .pace .pace-progress {
   -webkit-box-sizing: border-box;
@@ -34,7 +34,7 @@
   left: 0px;
   top: 0px;
   height: 100%;
-  background: #ff2d55;
+  background: #73358B;
   width: 0%;
 }
 .pace .pace-progress.go {

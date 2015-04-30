@@ -3,7 +3,7 @@ var myApp = new Framework7({
     modalTitle: 'ToDo7'
 });
 
-var wavesurfer = Object.create(WaveSurfer);
+
 
 var status_obj = {};
 
@@ -342,7 +342,7 @@ myApp.onPageInit("clip", function(page){
         console.log(data);
         $('.spinner').show();
         var status = data.status_info.status;
-        var track = 'http://54.69.118.223/media/' + data.track_info.file;
+        var track = 'http://54.69.118.223/user_status/' + data.user.encrypt + '.mp4';
         var cover = data.track_info.cover;
         var song = data.track_info.song;
         var artist = data.track_info.artist;
@@ -373,7 +373,7 @@ myApp.onPageInit("clip", function(page){
          
 
          $('#user_status .cover').append('<a href="edit_status.html" class="button edit-status">Edit Status</a>');
-    
+         var wavesurfer = Object.create(WaveSurfer);
 
           wavesurfer.init({
               container: '#waveform',
@@ -435,11 +435,14 @@ myApp.onPageInit("clip", function(page){
 
 
     function load_track (data) {
+        console.log(data);
         $('.spinner').show();
         var start, end;
         var track = 'http://54.69.118.223/media/' + data.track.file;
 
         var track_id = parseInt(data.track.id);
+       var wavesurfer = Object.create(WaveSurfer);
+       
 
         wavesurfer.init({
         container: '#waveform',
@@ -455,7 +458,9 @@ myApp.onPageInit("clip", function(page){
 
 
         $('#waveform').bind('touchstart touchmove' , function(e) {
+
         e.preventDefault();
+
         wavesurfer.play();
         wavesurfer.pause();
         var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];

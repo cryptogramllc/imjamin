@@ -168,4 +168,10 @@
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 @end

@@ -44,6 +44,7 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
+		9C0A699629AF48D9A2EA296D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D3B425EBF2482BA16ED3BC /* MediaPlayer.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A51A27CD3D354F6AA26FDCB8 /* CDVCapture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47CA05D955414DE4A80BC602 /* CDVCapture.bundle */; };
 		A5878F6752DE4E05A1346A90 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EEE020F9C24E6AB279AA51 /* CDVAssetLibraryFilesystem.m */; };
 		AE7054EA69AD48E59084753F /* CDVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4586B82C9E4315956D0570 /* CDVContact.m */; };
@@ -79,6 +80,7 @@
 /* Begin PBXFileReference section */
 		12D13EF5951345DF8B760551 /* CDVLocalFilesystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVLocalFilesystem.m; path = org.apache.cordova.file/CDVLocalFilesystem.m; sourceTree = "<group>"; };
 		14A4C39403CC44F8B48EEFD5 /* CDVCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVCamera.h; path = org.apache.cordova.camera/CDVCamera.h; sourceTree = "<group>"; };
+		15D3B425EBF2482BA16ED3BC /* MediaPlayer.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* ImJammin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImJammin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,7 @@
 				59419BDA857F4AFB96FAB062 /* CoreLocation.framework in Frameworks */,
 				105370EA71A94E0895A6C7D4 /* AddressBook.framework in Frameworks */,
 				E6DB39AC12C64DE1B72558E4 /* AddressBookUI.framework in Frameworks */,
+				9C0A699629AF48D9A2EA296D /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +247,7 @@
 				B96670859A194FD5A79446AE /* CoreLocation.framework */,
 				F8BED605D81D4A098B20DB6D /* AddressBook.framework */,
 				E604CC67547147CD9C3406E6 /* AddressBookUI.framework */,
+				15D3B425EBF2482BA16ED3BC /* MediaPlayer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

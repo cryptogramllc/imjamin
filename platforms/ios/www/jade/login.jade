@@ -1,9 +1,6 @@
 div.navbar
   div.navbar-inner
     div.left
-      //- a.back.link(href="index.html")
-        i.icon.icon-back-blue
-         span Back
     div.center.sliding Login
 div.pages
   div.page.main-page.no-toolbar.no-navbar(data-page="login")
@@ -30,5 +27,4 @@ div.pages
                    div.item-title.label Mobile
                    div.item-input
                        input(type="tel", placeholder="Your Mobile", name="mobile", id="mobile")
-         a.button.done.prompt-ok(href="#") Done 
-         a.home_page.hidden(href="profile.html") Home       
+         a.button.done(href="#", data-function="checkNum") Send SMS Code 

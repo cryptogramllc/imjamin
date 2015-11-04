@@ -34,6 +34,9 @@
     <feature name="ContactsPhoneNumbers">
         <param name="ios-package" value="CDVContactsPhoneNumbers" />
     </feature>
+    <feature name="iOSAudioPicker">
+        <param name="ios-package" value="iOSAudioPicker" />
+    </feature>
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="BackupWebStorage" value="cloud" />

@@ -103,7 +103,7 @@ module.exports = function (grunt) {
         },
         open: {
             kitchen: {
-                path: 'http://localhost:3000/kitchen-sink'
+                path: 'http://localhost:3000/www/'
             }
         },
         less: {
@@ -285,7 +285,7 @@ module.exports = function (grunt) {
     });
 
     // Default task.
-    this.registerTask('default', ['build']);
+    this.registerTask('default', ['watch', 'server']);
 
     // Build a new version of the library
     this.registerTask('test', 'Test of <%= pkg.name %>', [

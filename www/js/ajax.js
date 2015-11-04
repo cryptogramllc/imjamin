@@ -38,10 +38,9 @@ $(document).ready(function(){
            var num_code;
         
            $('input[type="radio"]').each(function(){
-
-				var checkbox = $(this).is(':checked');
-			    if(checkbox){ num_code = $(this).val(); }
-			});
+				      var checkbox = $(this).is(':checked');
+			        if(checkbox){ num_code = $(this).val(); }
+			      });
 
            var number = $('#mobile').val();
            var mobile = num_code + number; 

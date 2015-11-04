@@ -218,6 +218,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/me.rahul.plugins.audio-picker/www/iOSAudioPicker.js",
+        "id": "me.rahul.plugins.audio-picker.iOSAudioPicker",
+        "clobbers": [
+            "window.plugins.iOSAudioPicker"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -376,6 +383,7 @@ module.exports.metadata =
     "org.apache.cordova.device": "0.3.0",
     "org.apache.cordova.file-transfer": "0.5.0",
     "com.dbaq.cordova.contactsPhoneNumbers": "0.0.3",
+    "me.rahul.plugins.audio-picker": "0.0.1",
     "org.apache.cordova.file": "1.3.3"
 }
 // BOTTOM OF METADATA

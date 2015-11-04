@@ -190,10 +190,10 @@ myApp.onPageInit("clip", function(page){
           dataType: 'JSON',
           cache: false,
           beforeSend:function(){
-             $('.spinner').show();
+             $('.loader-gif').show();
           },
           success: function(data){
-              $('.spinner').hide();
+              $('.loader-gif').hide();
              // console.log(data);
               eval(data.function)(data);
               // $('.media-list ul').html(data);
@@ -272,7 +272,7 @@ myApp.onPageInit("clip", function(page){
 
           $('.media-list ul').empty();
            $.each(data, function(index, value){
-             //  console.log(value);
+             console.log(value);
                     var status_user_id = value.status.user_id;
                     var status_quote = value.status.status;
                     var user_avatar = value.user.avatar;
@@ -309,13 +309,14 @@ myApp.onPageInit("clip", function(page){
       
     } 
     function load_search(data){
-    // console.log(data);
+     console.log(data);
     $('.media-list.results ul').empty();
     $.each(data, function(index, value){
-    var cover = value.info.cover;
     var song = value.info.song;
     var artist = value.info.artist;
     var album = value.info.Album;
+    var cover = value.info.cover;
+
     var id = value.info.id;
     $('.media-list.results ul').append("<li>" +
                 "<a href='clip.html?t_id="+ id +"'  class='item-link media item-content'>"+
@@ -340,9 +341,9 @@ myApp.onPageInit("clip", function(page){
     function load_status(data) {
 
         console.log(data);
-        $('.spinner').show();
+        $('.loader-gif').show();
         var status = data.status_info.status;
-        var track = 'http://54.69.118.223/user_status/' + data.user.encrypt + '.mp4';
+        var track = 'http://54.69.118.223/media/' + data.track_info.file;
         var cover = data.track_info.cover;
         var song = data.track_info.song;
         var artist = data.track_info.artist;
@@ -382,7 +383,7 @@ myApp.onPageInit("clip", function(page){
           });
                                   
           wavesurfer.on('ready', function () {
-              $('.spinner').hide();
+              $('.loader-gif').hide();
               $('.play_button').show();
                wavesurfer.clearRegions();
                wavesurfer.addRegion({'start': start_time, 'end': end_time });
@@ -419,7 +420,7 @@ myApp.onPageInit("clip", function(page){
                 // }, false);
 
                 // audio.addEventListener('playing', function(){
-                //     $('.spinner').hide();
+                //     $('.loader-gif').hide();
                 //     $('.pace-progress').addClass('go');
                 //         setTimeout(function(){
                 //         $('.play_button').show();
@@ -436,18 +437,18 @@ myApp.onPageInit("clip", function(page){
 
     function load_track (data) {
         console.log(data);
-        $('.spinner').show();
+        $('.loader-gif').show();
         var start, end;
         var track = 'http://54.69.118.223/media/' + data.track.file;
 
         var track_id = parseInt(data.track.id);
-       var wavesurfer = Object.create(WaveSurfer);
+        var wavesurfer = Object.create(WaveSurfer);
        
 
         wavesurfer.init({
-        container: '#waveform',
-        waveColor: '#310D55',
-        progressColor: 'purple'
+           container: '#waveform',
+           waveColor: '#310D55',
+           progressColor: 'purple'
         });
 
        

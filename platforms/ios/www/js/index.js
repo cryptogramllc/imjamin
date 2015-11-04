@@ -39,6 +39,7 @@ var app = {
         app.receivedEvent('deviceready');
         console.log('deviceready');
         console.log(navigator.contacts);
+        
 
 
     },
@@ -53,4 +54,54 @@ var app = {
 
         console.log('Received Event: ' + id);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 };

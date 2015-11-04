@@ -1,12 +1,9 @@
-div.navbar
-  div.navbar-inner
-    div.left
-      //- a.back.link(href="index.html")
-        i.icon.icon-back-blue
-         span Back
-    div.center.sliding Login
-div.pages
-  div.page.main-page.no-toolbar.no-navbar(data-page="login")
+.navbar
+  .navbar-inner
+    .left
+    .center.sliding Login
+.pages
+  .page.main-page.no-toolbar.no-navbar(data-page="login")
    .page-content
     .content-block
       .feilds.sign-in
@@ -15,20 +12,19 @@ div.pages
             li Select Country: 
               label.label-radio.item-content 
                 input(type="radio", name="country", value="+1", checked="checked", id="US")
-                div.item-inner
-                    div.item-title United States (+1)
+                .item-inner
+                    .item-title United States (+1)
             li
               label.label-radio.item-content
                 input(type="radio", name="country", value="+44", checked="", id="UK")
-                div.item-inner
-                    div.item-title United Kingdom (+44)
+                .item-inner
+                    .item-title United Kingdom (+44)
             li
-              div.item-content
-                div.item-media
+              .item-content
+                .item-media
                   i.icon.icon-form-tel
-                div.item-inner
-                   div.item-title.label Mobile
-                   div.item-input
+                .item-inner
+                   .item-title.label Mobile
+                   .item-input
                        input(type="tel", placeholder="Your Mobile", name="mobile", id="mobile")
-         a.button.done.prompt-ok(href="#") Done 
-         a.home_page.hidden(href="profile.html") Home       
+         a.button.done(href="#", data-function="checkNum") Send SMS Code 

@@ -69,8 +69,7 @@ module.exports = function (grunt) {
         'src/js/proto-device.js',
         'src/js/proto-plugins.js',
         'src/js/wrap-end.js',
-        'src/js/template7.js'
-    ];
+        'src/js/template7.js'];
 
     // Project configuration.
     grunt.initConfig({
@@ -468,7 +467,7 @@ module.exports = function (grunt) {
     });
 
     // Default task.
-    this.registerTask('default', ['build']);
+    this.registerTask('default', ['build', 'watch', 'server']);
 
     // Build a new version of the library
     this.registerTask('test', 'Test of <%= pkg.name %>', [

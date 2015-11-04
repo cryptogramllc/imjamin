@@ -5,3 +5,17 @@ img[src*="iphone"] {
   /* Chrome, Safari, Opera */
   transform: rotate(90deg);
 }
+wave > wave {
+  display: none;
+}
+.loader-gif {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  height: 40px;
+  width: 40px;
+  margin-left: -40px;
+  margin-top: -20px;
+}

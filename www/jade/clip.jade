@@ -1,6 +1,6 @@
 .navbar-inner
   .left
-    a(href="search.html").link.back
+    a(href="search.html", data-function="waveDestroy").link.back
       i.icon.icon-left
   .center.sliding Clip the Track
   .right
@@ -13,7 +13,7 @@
           .wave-container
             div(id="waveform")
           p If you like what you hear, click  <strong>"I like this clip!"</strong> to proceed.      
-        .button(id="play-back") 
+        a.button(id="play-back", data-function="playBack")
             span.play.text Play
             span.proceed.text I like this clip!      
 
